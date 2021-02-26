@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./vendors/./bootstrap-4.5.2-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./vendors/highlight/darcula.css" />
+    <link
+      rel="stylesheet"
+      href="./vendors/smartWizard/smart_wizard_all.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>TOP 10 OWASP</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="font-mont h2 mt-2">Tìm hiểu về bảo mật ứng dụng web</div>
+      <hr />
+      <div class="row">
+        <div class="col-12">
+          <div class="tab">
+            <div class="page-number h2">
+              <span class="number">1.</span> Injection
+            </div>
+            
+           
+            <div id="smartwizard">
+              <ul class="nav">
+                <li>
+                  <a class="nav-link" href="#step-1"> Tìm hiểu về Injection </a>                  
+                </li>
+                <li>
+                  <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#step-3"> Demo sau khi Ngăn lỗi Injection </a>
+                </li>
+              </ul>
+
+              <div class="tab-content">
+                <div id="step-1" class="tab-pane" role="tabpanel">
+                  <div class="content">
+                    <p>
+                      SQL Injection là một kỹ thuật lợi dụng những lỗ hổng về câu truy
+                      vấn của các ứng dụng. Được thực hiện bằng cách chèn thêm một
+                      đoạn SQL để làm sai lệnh đi câu truy vấn ban đầu, từ đó có thể
+                      khai thác dữ liệu từ database. SQL injection có thể cho phép
+                      những kẻ tấn công thực hiện các thao tác như một người quản trị
+                      web, trên cơ sở dữ liệu của ứng dụng.
+                    </p>
+                    <p>
+                      Thông thường các nơi bị tấn công sẽ là các ô nhập liệu ở bất kỳ
+                      đâu trên website của bạn!
+                    </p>
+                    <p>
+                      Dữ liệu tấn công sẽ có 2 loại là:
+                      <strong>String text</strong> và <strong>Number</strong>
+                    </p>
+                    <p>Giả sử, website chúng ta có chức năng là đăng nhập.</p>
+                    <p>Hãy thực hiện chức năng đăng nhập với tài khoản là <span class="high-light">admin</span> và mật khẩu là <span class="high-light">admin</span></p>
+                    <p>
+                      Giờ hãy thử Nhập vào cả 2 ô Dữ liệu theo ví dụ như sau
+                      <span class="high-light">123456 or 1=1</span>
+                      hoặc <span class="high-light">Dev' or 'a'='a'</span>
+                    </p>
+                  </div>
+                  <div class="demo d-flex">
+                    <div class="form-group">
+                      <form action="">
+                        <input
+                          type="text"
+                          class="form-control font-small mb-3"
+                          placeholder="Nhập vào tài khoản"
+                        />
+                        <input
+                          type="password"
+                          class="form-control font-small mb-3"
+                          placeholder="Nhập vào mật khẩu"
+                        />
+                        <button
+                          type="submit"
+                          class="btn btn-primary btn-sm px-3 py-1"
+                        >
+                          Đăng nhập
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div id="step-2" class="tab-pane" role="tabpanel">
+                   <pre>
+                      <code class="C#">
+          public class Customer : IIdEntity<int>
+                          {
+                              public int Id { get; set; }
+                              public string Name { get; set; }
+                              public string Address { get; set; }
+                              public string Email { get; set; }
+                              public string Phone { get; set; }
+                              public CustomerStatus Status { get; set; }
+                              public DateTime CreatedDate { get; set; }
+                              public virtual int? CustomerTypeId { get; set; }
+                              public virtual CustomerType CustomerType { get; set; }
+                          }
+                      </code>
+                    </pre>
+                </div>
+                <div id="step-3" class="tab-pane" role="tabpanel">
+                  Step content
+                </div>
+              </div>
+            </div>
+
+            
+          </div>
+          <!-- <a href="/" class="btn btn-primary btn-sm mt-3 px-3 py-1">Về trang chủ</a> -->
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Jquery -->
+  <script src="./vendors/jquery/jquery-3.5.1.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="./vendors/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+
+  <!-- Highlight -->
+  <script src="./vendors/highlight/highlight.min.js"></script>
+
+  <!-- Smart-Wizard -->
+  <script src="./vendors/smartWizard/jquery.smartWizard.min.js"></script>
+  <!-- <script src="./js/script.js"></script> -->
+  <script>
+    hljs.initHighlightingOnLoad();
+    $("#smartwizard").smartWizard({
+      theme: "dots",
+      transition: {
+        animation: "slide-horizontal",  
+      },
+      darkMode: false,
+    });
+  </script>
+</html>
