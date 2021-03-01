@@ -8,6 +8,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto Slab', serif;
+    font-size: 16px;
 }
 
 .font-mont{
@@ -17,6 +18,18 @@
 
 .font-small{
     font-size: 13px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.form-control.error:focus{
+    color: #495057;
+    background-color: #fff;
+    border-color: red !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 23, 23, 0.644);
 }
 
 .tab{
