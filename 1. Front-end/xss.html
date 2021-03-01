@@ -120,7 +120,8 @@
                 </div>
                 <div id="step-2" class="tab-pane" role="tabpanel">
                   <p class="h3">
-                    1. Validate Trực tiếp tại phía Client bằng Javascript
+                    1. Sử dụng Regex để Validate Trực tiếp tại phía Client bằng
+                    Javascript
                   </p>
                   <pre>
                       <code class="JavaScript">
@@ -203,21 +204,8 @@
 
   <!-- Smart-Wizard -->
   <script src="./vendors/smartWizard/jquery.smartWizard.min.js"></script>
-  <!-- <script src="./js/script.js"></script> -->
+  <script src="./js/script.js"></script>
   <script>
-    hljs.initHighlightingOnLoad();
-    $("#smartwizard").smartWizard({
-      theme: "dots",
-      transition: {
-        animation: "slide-horizontal",
-      },
-      darkMode: false,
-    });
-
-    $(window).on("load", function () {
-      alert(document.cookie);
-    });
-
     function handleClickGetText(e) {
       const textArea = document.querySelector("#notValidate");
       textArea.innerText = e.innerText;
