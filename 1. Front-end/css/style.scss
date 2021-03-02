@@ -40,6 +40,7 @@
     }
     .content{
         font-size: 14px;
+        word-wrap: break-word;
         .high-light{
             background-color: rgb(218, 218, 218);
             color: rgb(255, 0, 0);
@@ -49,7 +50,6 @@
     }
     .demo{
         width: 100%;
-        // background:s red;
         margin: 1rem 0;
         padding: 1rem;
 

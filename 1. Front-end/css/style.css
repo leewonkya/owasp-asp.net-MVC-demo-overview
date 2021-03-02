@@ -11,7 +11,7 @@
 
 .font-mont {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .font-small {
@@ -37,6 +37,7 @@
 
 .tab .content {
   font-size: 14px;
+  word-wrap: break-word;
 }
 
 .tab .content .high-light {
