@@ -27,96 +27,146 @@
             <div class="page-number h2">
               <span class="number">5.</span> Security Misconfiguration
             </div>
-            
-           
+
             <div id="smartwizard">
               <ul class="nav">
                 <li>
-                  <a class="nav-link" href="#step-1"> Tìm hiểu về Security Misconfiguration </a>                  
+                  <a class="nav-link" href="#step-1">
+                    Tìm hiểu về Security Misconfiguration
+                  </a>
                 </li>
                 <li>
                   <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#step-3"> Demo sau khi Ngăn lỗi </a>
                 </li>
               </ul>
 
               <div class="tab-content">
                 <div id="step-1" class="tab-pane" role="tabpanel">
                   <div class="content">
-                    <p>
-                      SQL Injection là một kỹ thuật lợi dụng những lỗ hổng về câu truy
-                      vấn của các ứng dụng. Được thực hiện bằng cách chèn thêm một
-                      đoạn SQL để làm sai lệnh đi câu truy vấn ban đầu, từ đó có thể
-                      khai thác dữ liệu từ database. SQL injection có thể cho phép
-                      những kẻ tấn công thực hiện các thao tác như một người quản trị
-                      web, trên cơ sở dữ liệu của ứng dụng.
+                    <p class="h4">
+                      Security Misconfiguration là một lỗi bảo mật và các ứng
+                      dụng website có thể bị cấu hình sai! Nguyên nhân do:
                     </p>
-                    <p>
-                      Thông thường các nơi bị tấn công sẽ là các ô nhập liệu ở bất kỳ
-                      đâu trên website của bạn!
-                    </p>
-                    <p>
-                      Dữ liệu tấn công sẽ có 2 loại là:
-                      <strong>String text</strong> và <strong>Number</strong>
-                    </p>
-                    <p>Giả sử, website chúng ta có chức năng là đăng nhập.</p>
-                    <p>Hãy thực hiện chức năng đăng nhập với tài khoản là <span class="high-light">admin</span> và mật khẩu là <span class="high-light">admin</span></p>
-                    <p>
-                      Giờ hãy thử Nhập vào cả 2 ô Dữ liệu theo ví dụ như sau
-                      <span class="high-light">123456 or 1=1</span>
-                      hoặc <span class="high-light">Dev' or 'a'='a'</span>
-                    </p>
+                    <ol class="ml-5">
+                      <li>
+                        <p>Chạy ứng dụng khi chế độ debug đang bậc.</p>
+                      </li>
+                      <li>
+                        <p>
+                          Sử dụng các phần mềm lỗi thời trong wordpress, PHP cũ.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Các tài khoản mặc định đã được vô hiệu hay được thay
+                          đổi chưa?
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Những phần xử lý lỗi có được thiết lập để tránh rò rỉ
+                          những dấu vết stack hay những thông tin lỗi quá cụ
+                          thể?
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Tích hợp thêm các dịch vụ, phần mềm, các plugin không
+                          cần thiết.
+                        </p>
+                      </li>
+                    </ol>
+                    <p class="h4">Các kịch bản có thể bị tấn công:</p>
+                    <ul class="ml-5">
+                      <li>
+                        <p>
+                          Attackers có thể lợi dụng các cách tấn công thông
+                          thường như Injection, XSS nếu hệ thống chưa validate ở
+                          phía Front-end để lợi dụng nó làm cho hệ thống của bạn
+                          phải hiển thị Exception, sau đó tấn công vào hệ thống.
+                          Hoặc một chức năng nào đó mà bạn đã bỏ qua. Attackers
+                          có thể lợi dụng điều đó.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Giao diện điều khiển máy chủ của quản trị viên được tự
+                          động cài đặt và không được gỡ bỏ. Tài khoản mặc định
+                          chưa được thay đổi. Kẻ tấn công phát hiện đăng nhập
+                          với tài khoản mặc định và chiếm quyền điều khiển hệ
+                          thống.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Chức năng liệt kê thư mục chưa được vô hiệu hóa Kẻ tấn
+                          công phát hiện và hắn có thể liệt kê các tập tin trong
+                          thư mục và tìm tập tin hắn muốn. Ví dụ những tập tin
+                          Java class của bạn, hắn dịch ngược về mã nguồn và tìm
+                          ra những lỗ hổng nghiêm trọng trong đó.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Cấu hình máy chủ cho phép người dùng xem các dấu vết
+                          stack, điều này có thể để lộ những lỗ hổng bảo mật. Kẻ
+                          tấn công rất thích những thông tin được thêm vào trong
+                          những thông điệp báo lỗi như vậy.
+                        </p>
+                      </li>
+                    </ul>
                   </div>
                   <div class="demo d-flex">
                     <div class="form-group">
                       <form action="">
-                        <input
-                          type="text"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào tài khoản"
-                        />
-                        <input
-                          type="password"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào mật khẩu"
-                        />
                         <button
                           type="submit"
                           class="btn btn-primary btn-sm px-3 py-1"
                         >
-                          Đăng nhập
+                          Hiển thị danh sách product
                         </button>
                       </form>
                     </div>
                   </div>
                 </div>
                 <div id="step-2" class="tab-pane" role="tabpanel">
-                   <pre>
-                      <code class="C#">
-          public class Customer : IIdEntity<int>
-                          {
-                              public int Id { get; set; }
-                              public string Name { get; set; }
-                              public string Address { get; set; }
-                              public string Email { get; set; }
-                              public string Phone { get; set; }
-                              public CustomerStatus Status { get; set; }
-                              public DateTime CreatedDate { get; set; }
-                              public virtual int? CustomerTypeId { get; set; }
-                              public virtual CustomerType CustomerType { get; set; }
-                          }
-                      </code>
-                    </pre>
-                </div>
-                <div id="step-3" class="tab-pane" role="tabpanel">
-                  Step content
+                  <p class="h3">
+                    Làm thế nào để tôi ngăn ngừa được ‘Security
+                    Misconfiguration’ ?
+                  </p>
+                  <ol class="ml-5">
+                    <li>
+                      <p>
+                        Hãy xem xét việc chạy chương trình quét và kiểm tra định
+                        kì để phát hiện những cấu hình sai hoặc những bản vá
+                        thiếu.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Một kiến trúc ứng dụng vững chắc có thể phân tách và bảo
+                        vệ các thành phần riêng biệt
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Một tiến trình bảo mật có thể dễ dàng lặp lại giúp cho
+                        việc triển khai trên môi trường khác nhanh chóng và dễ
+                        dàng, nên được thiết lập giống nhau, nên được tự động để
+                        giảm thiểu công sức thiết lập một môi trường mới an toàn
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Thường xuyên cập nhật, kiểm tra các gói, extension để
+                        tránh trường hợp lộ thông tin tuyệt mật dẫn đến mất hết
+                        tất cả dữ liệu
+                      </p>
+                    </li>
+                  </ol>
                 </div>
               </div>
             </div>
-
-            
           </div>
           <!-- <a href="/" class="btn btn-primary btn-sm mt-3 px-3 py-1">Về trang chủ</a> -->
         </div>

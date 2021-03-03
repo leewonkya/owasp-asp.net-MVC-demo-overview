@@ -125,22 +125,25 @@
                   </p>
                   <pre>
                       <code class="JavaScript">
-            function validate() {
-                let message = document.formValue.message;
-                let error = document.querySelector(".error");
-                if (message.value == "") {
-                    error.innerText = "Tin nhắn không được để trống";
-                    message.classList.add("error");
-                    message.focus();
-                    return false;
-                }
-                if (message.value.match(regex)) {
-                    error.innerText = "Tin nhắn nhập vào không hợp lệ!!";
-                    message.classList.add("error");
-                    message.focus();
-                    return false;
-                }
-            }
+                    const regex = "<(|\/|[^\/>][^>]+|\/[^>][^>]+)>";
+                    const handleValidate = () => {
+                      let message = document.querySelector("#validate");
+                      let error = document.querySelector(".errorText");
+                      if (message.value == "") {
+                        error.innerText = "Tin nhắn không được để trống";
+                        message.classList.add("error");
+                        message.focus();
+                        return false;
+                      }
+                      if (message.value.match(regex)) {
+                        error.innerText = "Tin nhắn nhập vào không hợp lệ!!";
+                        message.classList.add("error");
+                        message.focus();
+                        return false;
+                      }
+                
+                      return true;
+                    };
                       </code>
                   </pre>
                   <p class="h3">2. Validate tại phía Server</p>
