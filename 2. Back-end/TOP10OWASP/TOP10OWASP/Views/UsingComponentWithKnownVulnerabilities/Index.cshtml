@@ -1,0 +1,110 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="tab">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <div class="page-number h2">
+                    <span class="number">9. </span> Using Components with Known
+                    Vulnerabilities
+                </div>
+                <a href="/" class="mr-auto">Back to index</a>
+            </div>
+
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Tìm hiểu về Using Components with Known Vulnerabilities
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p>
+                                Đây là vấn đề xảy ra khi sử dụng các bộ thư viện đã tồn
+                                tại lỗ hổng. Trước khi tích hợp một mã nguồn mới vào
+                                website, hãy thực hiện một số nghiên cứu hoặc kiểm tra bảo
+                                mật. Sử dụng mã nguồn mà bạn nhận được từ một người ngẫu
+                                nhiên trên GitHub hoặc một số diễn đàn có thể rất thuận
+                                tiện. Nhưng hãy sẵn sàng trước nguy cơ đối diện với một lỗ
+                                hổng bảo mật web nghiêm trọng.
+                            </p>
+                            <p>
+                                Ví dụ: Nhiều trường hợp, trang admin bị lộ không phải vì
+                                các lập trình viên sai sót, mà vì phần mềm của bên thứ ba
+                                vẫn chưa được cập nhật.
+                            </p>
+                            <p>
+                                Lỗ hổng từ các thành phần hợp thành như thư viện,
+                                framework, plug-in và các module phần mềm khác được gọi là
+                                các lỗ hổng thành phần.
+                            </p>
+                            <p>
+                                <strong>Tác nhân đe dọa: </strong> Từ các components hỗ
+                                trợ như framework, plug-in, thư viện...
+                            </p>
+                            <p>
+                                <strong>Phương pháp tấn công: </strong> Hacker xác định
+                                điểm yếu thông qua scan hoặc phân tích bằng tay.
+                            </p>
+                            <p>
+                                <strong>Điểm yếu bảo mật: </strong> Hầu hết mọi ứng dụng
+                                đều có những vấn đề bởi vì hầu hết các developer không chú
+                                trọng vào đảm bảo code, các thành phần thư viện,
+                                framework,... được cập nhật thường xuyên.
+                            </p>
+                            <p>
+                                <strong>Kỹ thuật tấn công: </strong>Những kẻ tấn công sử
+                                dụng các điểm yếu có thể khai thác được bao gồm injection,
+                                broken access control, XSS, etc…
+                            </p>
+                        </div>
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        <p class="h3">Cách ngăn chặn lỗ hổng:</p>
+                        <ol class="ml-5">
+                            <li>
+                                <p>
+                                    <strong>Cập nhật mọi thứ:</strong> Đảm bảo bạn đang sử
+                                    dụng phiên bản mới nhất của tất cả mọi thứ và có kế
+                                    hoạch cập nhật chúng thường xuyên. Ít nhất là đăng ký
+                                    bản tin về các lỗ hổng bảo mật mới liên quan đến sản
+                                    phẩm.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Hãy dành thời gian xem xét các tài liệu hiện có của các
+                                    thành phần dự án của bạn cũng như các diễn đàn liên quan
+                                    đến công cụ, ngôn ngữ … mà bạn đang sử dụng. Hầu hết các
+                                    nhà cung cấp sẽ nhanh chóng thông báo cho người dùng khi
+                                    các lỗ hổng được tìm thấy.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Khi các lỗ hổng được phát hiện, bản cập nhật và sửa lỗi
+                                    có xu hướng xuất hiện kịp thời người dùng nên tải về bản
+                                    cập nhật sớm nhất có thể.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Một cách để phòng tránh nữa là bọc code của các thành
+                                    phần được thêm vào ứng dụng. Bằng cách này, có thể cô
+                                    lâp thành phần nếu nó xuất hiện các lỗ hổng, và kiểm
+                                    soát những gì đi vào và ra khỏi các thành phần bên ngoài
+                                    một cách hiệu quả.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./image/54522-removebg-preview.png"
+    />
+    <link
       rel="stylesheet"
       href="./vendors/./bootstrap-4.5.2-dist/css/bootstrap.min.css"
     />
@@ -25,20 +30,19 @@
         <div class="col-12">
           <div class="tab">
             <div class="page-number h2">
-              <span class="number">1.</span> Injection
+              <span class="number">8.</span> Cross-Site Request Forgery (CSRF)
+              <a href="/" class="mr-auto">Back to index</a>
             </div>
-            
-           
+
             <div id="smartwizard">
               <ul class="nav">
                 <li>
-                  <a class="nav-link" href="#step-1"> Tìm hiểu về Injection </a>                  
+                  <a class="nav-link" href="#step-1">
+                    Tìm hiểu về Cross-Site Request Forgery (CSRF)
+                  </a>
                 </li>
                 <li>
                   <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#step-3"> Demo sau khi Ngăn lỗi Injection </a>
                 </li>
               </ul>
 
@@ -46,77 +50,81 @@
                 <div id="step-1" class="tab-pane" role="tabpanel">
                   <div class="content">
                     <p>
-                      SQL Injection là một kỹ thuật lợi dụng những lỗ hổng về câu truy
-                      vấn của các ứng dụng. Được thực hiện bằng cách chèn thêm một
-                      đoạn SQL để làm sai lệnh đi câu truy vấn ban đầu, từ đó có thể
-                      khai thác dữ liệu từ database. SQL injection có thể cho phép
-                      những kẻ tấn công thực hiện các thao tác như một người quản trị
-                      web, trên cơ sở dữ liệu của ứng dụng.
+                      Đây là một ví dụ của cuộc tấn công deputy attack. Trình
+                      duyệt bị đánh lừa bởi một số bên thứ ba lạm dụng quyền
+                      hạn. <br />
+                      Ví dụ: trang web của bên thứ ba gửi yêu cầu đến trang web
+                      đích (ví dụ: ngân hàng của bạn) sử dụng trình duyệt của
+                      bạn với các dữ liệu như cookie và phiên người dùng. Nếu
+                      bạn đang đăng nhập vào một trang trên trang chủ của ngân
+                      hàng và trang đó dễ bị tấn công, một tab khác có thể cho
+                      phép kẻ tấn công đóng giả người quản trị. Deputy là khi
+                      trang web lạm dụng quyền hạn của mình (session cookies) để
+                      làm điều gì đó mà kẻ tấn công yêu cầu.
                     </p>
                     <p>
-                      Thông thường các nơi bị tấn công sẽ là các ô nhập liệu ở bất kỳ
-                      đâu trên website của bạn!
+                      Thông thường là do người dùng tò mò về những thông tin
+                      mật, sau đó bị các attackers lừa truy cập vào 1 đường link
+                      giả mạo để "GET LINK", họ không do dự sau khi ấn vào link
+                      đó hoặc phải cấp quyền bằng chính tài khoản của mình ở 1
+                      website lừa đảo nào đó mà họ không hề hay biết.
                     </p>
                     <p>
-                      Dữ liệu tấn công sẽ có 2 loại là:
-                      <strong>String text</strong> và <strong>Number</strong>
+                      Sau khi cấp quyền, attackers đã có được dữ liệu của người
+                      dùng đó, họ có thể tùy ý sử dụng hoặc mã hóa (bằng một
+                      cách nào đó) tất cả dữ liệu rồi sau đó thay đổi toàn bộ
+                      thông tin của họ. Ví dụ các trường hợp bị hack Facebook
+                      thường là do cấp quyền sai lệch.
                     </p>
-                    <p>Giả sử, website chúng ta có chức năng là đăng nhập.</p>
-                    <p>Hãy thực hiện chức năng đăng nhập với tài khoản là <span class="high-light">admin</span> và mật khẩu là <span class="high-light">admin</span></p>
                     <p>
-                      Giờ hãy thử Nhập vào cả 2 ô Dữ liệu theo ví dụ như sau
-                      <span class="high-light">123456 or 1=1</span>
-                      hoặc <span class="high-light">Dev' or 'a'='a'</span>
+                      Nguy hiểm hơn là các tài khoản liên quan đến thông tin của
+                      doanh nghiệp, thẻ tín dụng, ... hoặc những dữ liệu rất
+                      quan trọng. Attackers sẽ tìm mọi cách để khai thác dữ liệu
+                      của bạn.
                     </p>
-                  </div>
-                  <div class="demo d-flex">
-                    <div class="form-group">
-                      <form action="">
-                        <input
-                          type="text"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào tài khoản"
-                        />
-                        <input
-                          type="password"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào mật khẩu"
-                        />
-                        <button
-                          type="submit"
-                          class="btn btn-primary btn-sm px-3 py-1"
-                        >
-                          Đăng nhập
-                        </button>
-                      </form>
-                    </div>
+                    <p>
+                      Giả sử bạn muốn Hack Facebook của một người bạn muốn có
+                      thông tin của họ, bạn tìm hiểu nhiều nguồn thông tin và
+                      bạn tùy ý truy cập các link nguy hiểm. Ví dụ như truy cập
+                      vào đường link bằng Element a
+                      <a
+                        href="www.example.com/transfer?amount=1000000000&id=12321"
+                        class="btn btn-success px-1 py-2"
+                        >GET LINK</a
+                      >
+                      hoặc
+                      <a href="#" class="btn btn-facebook py-2 px-1"
+                        >ĐĂNG NHẬP BẰNG FACEBOOK</a
+                      >
+                    </p>
+                    <p>
+                      Attackers sẽ dựa vào việc bạn Click vào đó để thực hiện
+                      việc chuyển tiền của bạn đến họ (chỉ sảy ra khi người dùng
+                      có tài khoản ngân hàng liên quan đến dữ liệu của đường
+                      link trên)
+                    </p>
                   </div>
                 </div>
                 <div id="step-2" class="tab-pane" role="tabpanel">
-                   <pre>
-                      <code class="C#">
-          public class Customer : IIdEntity<int>
-                          {
-                              public int Id { get; set; }
-                              public string Name { get; set; }
-                              public string Address { get; set; }
-                              public string Email { get; set; }
-                              public string Phone { get; set; }
-                              public CustomerStatus Status { get; set; }
-                              public DateTime CreatedDate { get; set; }
-                              public virtual int? CustomerTypeId { get; set; }
-                              public virtual CustomerType CustomerType { get; set; }
-                          }
-                      </code>
-                    </pre>
-                </div>
-                <div id="step-3" class="tab-pane" role="tabpanel">
-                  Step content
+                  <p class="h4">
+                    Vậy để ngăn chặn hoặc đề phòng thì phải làm cách nào?
+                  </p>
+                  <div class="ml-3">
+                    <p>
+                      Cần phải thận trọng khi xác nhận khi cấp quyền ở bất kỳ
+                      website nào.
+                    </p>
+                    <p>
+                      Có một mẹo nhỏ để đề phòng đó là khi ta hover (rê chuột)
+                      vào một nút ở ví dụ, Bên phía góc trái dưới màn hình sẽ
+                      hiển thị đường link (nếu có) của action đó. Người dùng có
+                      thể cân nhắc chú ý.
+                    </p>
+                    <img src="./image/csrf.png" alt="CSRF" class="img-fluid" />
+                  </div>
                 </div>
               </div>
             </div>
-
-            
           </div>
           <!-- <a href="/" class="btn btn-primary btn-sm mt-3 px-3 py-1">Về trang chủ</a> -->
         </div>

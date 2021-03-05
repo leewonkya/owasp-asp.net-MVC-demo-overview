@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+}
+
+.font-mont {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.font-small {
+  font-size: 13px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn-facebook {
+  background-color: blue;
+  color: #fff;
+}
+
+.btn-facebook:hover {
+  background-color: #0000df;
+  color: #fff;
+}
+
+.form-control.error:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: red !important;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 23, 23, 0.644);
+          box-shadow: 0 0 0 0.2rem rgba(255, 23, 23, 0.644);
+}
+
+.tab .page-number .number {
+  font-size: 3rem;
+}
+
+.tab .content {
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.tab .content .high-light {
+  background-color: #dadada;
+  color: red;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.tab .demo {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: dashed 2px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+/*# sourceMappingURL=style.css.map */

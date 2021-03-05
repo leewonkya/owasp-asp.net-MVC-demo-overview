@@ -1,0 +1,148 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="tab">
+            <div class="page-number h2">
+                <span class="number">5.</span> Security Misconfiguration
+                <a href="/" class="mr-auto">Back to index</a>
+            </div>
+
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Tìm hiểu về Security Misconfiguration
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p class="h4">
+                                Security Misconfiguration là một lỗi bảo mật và các ứng
+                                dụng website có thể bị cấu hình sai! Nguyên nhân do:
+                            </p>
+                            <ol class="ml-5">
+                                <li>
+                                    <p>Chạy ứng dụng khi chế độ debug đang bậc.</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Sử dụng các phần mềm lỗi thời trong wordpress, PHP cũ.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Các tài khoản mặc định đã được vô hiệu hay được thay
+                                        đổi chưa?
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Những phần xử lý lỗi có được thiết lập để tránh rò rỉ
+                                        những dấu vết stack hay những thông tin lỗi quá cụ
+                                        thể?
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Tích hợp thêm các dịch vụ, phần mềm, các plugin không
+                                        cần thiết.
+                                    </p>
+                                </li>
+                            </ol>
+                            <p class="h4">Các kịch bản có thể bị tấn công:</p>
+                            <ul class="ml-5">
+                                <li>
+                                    <p>
+                                        Attackers có thể lợi dụng các cách tấn công thông
+                                        thường như Injection, XSS nếu hệ thống chưa validate ở
+                                        phía Front-end để lợi dụng nó làm cho hệ thống của bạn
+                                        phải hiển thị Exception, sau đó tấn công vào hệ thống.
+                                        Hoặc một chức năng nào đó mà bạn đã bỏ qua. Attackers
+                                        có thể lợi dụng điều đó.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Giao diện điều khiển máy chủ của quản trị viên được tự
+                                        động cài đặt và không được gỡ bỏ. Tài khoản mặc định
+                                        chưa được thay đổi. Kẻ tấn công phát hiện đăng nhập
+                                        với tài khoản mặc định và chiếm quyền điều khiển hệ
+                                        thống.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Chức năng liệt kê thư mục chưa được vô hiệu hóa Kẻ tấn
+                                        công phát hiện và hắn có thể liệt kê các tập tin trong
+                                        thư mục và tìm tập tin hắn muốn. Ví dụ những tập tin
+                                        Java class của bạn, hắn dịch ngược về mã nguồn và tìm
+                                        ra những lỗ hổng nghiêm trọng trong đó.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Cấu hình máy chủ cho phép người dùng xem các dấu vết
+                                        stack, điều này có thể để lộ những lỗ hổng bảo mật. Kẻ
+                                        tấn công rất thích những thông tin được thêm vào trong
+                                        những thông điệp báo lỗi như vậy.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="demo d-flex">
+                            <div class="form-group">
+                                <form action="">
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm px-3 py-1">
+                                        Hiển thị danh sách product
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        <p class="h3">
+                            Làm thế nào để tôi ngăn ngừa được ‘Security
+                            Misconfiguration’ ?
+                        </p>
+                        <ol class="ml-5">
+                            <li>
+                                <p>
+                                    Hãy xem xét việc chạy chương trình quét và kiểm tra định
+                                    kì để phát hiện những cấu hình sai hoặc những bản vá
+                                    thiếu.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Một kiến trúc ứng dụng vững chắc có thể phân tách và bảo
+                                    vệ các thành phần riêng biệt
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Một tiến trình bảo mật có thể dễ dàng lặp lại giúp cho
+                                    việc triển khai trên môi trường khác nhanh chóng và dễ
+                                    dàng, nên được thiết lập giống nhau, nên được tự động để
+                                    giảm thiểu công sức thiết lập một môi trường mới an toàn
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Thường xuyên cập nhật, kiểm tra các gói, extension để
+                                    tránh trường hợp lộ thông tin tuyệt mật dẫn đến mất hết
+                                    tất cả dữ liệu
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

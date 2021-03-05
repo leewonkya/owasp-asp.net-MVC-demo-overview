@@ -1,0 +1,166 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="tab">
+            <div class="page-number h2">
+                <span class="number">6.</span> Sensitive Data Exposure (Rò rỉ dữ
+                liệu nhạy cảm)
+
+                <a href="/" class="mr-auto">Back to index</a>
+            </div>
+
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Tìm hiểu về Sensitive Data Exposure
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p>
+                                Sentitive Data Exposure là lỗ hổng thuộc về việc quản lý
+                                dữ liệu. Dữ liệu nhạy cảm phải được mã hóa mọi lúc, bao
+                                gồm cả khi gửi đi và khi lưu trữ – không được phép có
+                                ngoại lệ. Thông tin thẻ tín dụng và mật khẩu người dùng
+                                không bao giờ được gửi đi hoặc được lưu trữ không được mã
+                                hóa. Rõ ràng thuật toán mã hóa và hashing không phải là
+                                một cách bảo mật yếu. Ngoài ra, các tiêu chuẩn an ninh web
+                                đề nghị sử dụng AES (256 bit trở lên) và RSA (2048 bit trở
+                                lên). <br />
+                                Cần phải nói rằng các Session ID và dữ liệu nhạy cảm không
+                                nên được truyền trong các URL và cookie nhạy cảm nên có cờ
+                                an toàn.
+                                <br />
+                                Thông thường, những kẻ tấn công không bẻ mật mã mà phá
+                                hoại những thứ khác: chẳng hạn tìm các khóa, lấy các bản
+                                sao dữ liệu không được mã hóa, hoặc truy cập dữ liệu qua
+                                các kênh có thể tự động giải mã.
+                            </p>
+                            <p class="h4">
+                                Tôi có thể bị tấn công bởi lỗi “Sensitive Data Exposure”
+                                không? và phải hạn chế tối đa việc có thể bị tấn công như
+                                thế nào?
+                            </p>
+                            <p>
+                                Điều đầu tiên bạn phải xác định là thông tin nào nhạy cảm
+                                đến mức cần phải yêu cầu bảo mật. Ví dụ: mật khẩu, thẻ tín
+                                dụng, hồ sơ y tế, và các thông tin cá nhân nên được mã
+                                hóa. Đối với tất cả các dữ liệu kiểu như vậy, phải bảo đảm
+                                rằng:
+                            </p>
+                            <ol class="ml-5">
+                                <li>
+                                    <p>
+                                        Những thông tin được lưu trữ lâu dài phải được mã hóa,
+                                        đặc biệt trong bản sao lưu các dữ liệu này.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Chỉ những người được ủy quyền có thể truy cập các bản
+                                        sao được giải mã của dữ liệu.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Sử dụng một thuật toán mã hóa mạnh và được xây dựng
+                                        theo tiêu chuẩn.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Bạn cần hạn chế các dữ liệu nhạy cảm có khả năng bị lộ
+                                        của mình. Nếu bạn không cần những dữ liệu nhạy cảm
+                                        này, hãy hủy nó. Dữ liệu bạn không có không thể bị
+                                        đánh cắp.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Nếu bạn có dữ liệu nhạy cảm mà bạn thực sự cần, lưu
+                                        trữ mã hóa nó và đảm bảo rằng tất cả các mật khẩu được
+                                        sử dụng hàm Hash để bảo vệ. Đối với Hash, nên sử dụng
+                                        bcrypt. Nếu bạn không sử dụng mã hoá bcrypt, hãy tìm
+                                        hiểu về mã Salt để ngăn ngừa rainbow table attack.
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="demo d-flex">
+                            <div class="form-group">
+                                <select name="" id="" class="form-control">
+                                    <option value="1123213123213">1123213123213</option>
+                                    <option value="1123213123213">1123213123213</option>
+                                    <option value="1123213123213">1123213123213</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        <p class="h3">
+                            Những thuật toán mã hóa chính là các options tối ưu nhất.
+                            Theo tiểu chuẩn an ninh web đề nghị nên sử dụng các loại mã
+                            hóa cực mạnh như AES (256 bit) RSA (2048 bit), TripleDES,
+                            ...
+                        </p>
+                        <ol class="ml-5">
+                            <li>
+                                <p>
+                                    Hãy xem xét việc chạy chương trình quét và kiểm tra định
+                                    kì để phát hiện những cấu hình sai hoặc những bản vá
+                                    thiếu.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Một kiến trúc ứng dụng vững chắc có thể phân tách và bảo
+                                    vệ các thành phần riêng biệt
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Một tiến trình bảo mật có thể dễ dàng lặp lại giúp cho
+                                    việc triển khai trên môi trường khác nhanh chóng và dễ
+                                    dàng, nên được thiết lập giống nhau, nên được tự động để
+                                    giảm thiểu công sức thiết lập một môi trường mới an toàn
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Thường xuyên cập nhật, kiểm tra các gói, extension để
+                                    tránh trường hợp lộ thông tin tuyệt mật dẫn đến mất hết
+                                    tất cả dữ liệu
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Đảm bảo các thuật toán mạnh theo tiêu chuẩn và các khóa
+                                    mã mạnh được sử dụng, việc quản lý các khóa mã này cũng
+                                    cần được lưu tâm.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Đảm bảo mật khẩu được băm theo tiêu chuẩn của một thuật
+                                    toán mạnh và có độ phức tạp nhất định.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Đảm bảo tất cả các khóa và mật khẩu được bảo vệ khỏi
+                                    những truy cập trái phép.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

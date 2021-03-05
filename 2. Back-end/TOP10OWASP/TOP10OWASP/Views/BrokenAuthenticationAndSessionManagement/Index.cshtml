@@ -1,0 +1,158 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="tab">
+            <div class="page-number h2">
+                <span class="number">2.</span> Broken Authenticaton and Session
+                Management
+                <a href="/" class="mr-auto">Back to index</a>
+            </div>
+
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Tìm hiểu về Broken Authenticaton and Session Management
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-3"> Demo sau khi Ngăn lỗi </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p>
+                                Kẻ tấn công có thể là những kẻ tấn công nặc danh, hoặc
+                                người người dùng sở hữu tài khoản muốn ăn cắp thông tin từ
+                                tài khoản khác. Cũng nên cân nhắc những đối tượng nội bộ
+                                muốn che dấu hành động Kẽ tấn công lợi dụng những sơ hở
+                                trong các đoạn mã kiểm tra định danh (ví dụ: xem tài
+                                khoản, password, ID phân làm việc) để giả mạo người dùng
+                                Người phát triển thường xuyên tự xây dựng những mô hình
+                                chứng thực và quản lý các phiên làm việc, nhưng xây dựng
+                                đúng cách thì không dễ. Kết quả là những cái tùy chọn đó
+                                thường xuyên có lỗi trong nhiều phần như đăng xuất, quản
+                                lý password, thời gian chờ, ghi nhớ người dùng, câu hỏi bí
+                                mật, cập nhật tài khoản v.v. Tìm những lỗi này có thể rất
+                                khó khăn bởi vì các cách triển khai có thể độc lập, không
+                                giống nhau. Lỗi như thế có thể cho phép một vài hoặc toàn
+                                bộ tài khoản bị tấn công. Khi đã thành công, kẻ tấn công
+                                có thể làm nhiều thứ dưới quyền của nạn nhân.
+                            </p>
+                            <p>
+                                Vậy để kiểm tra bạn có mắc lỗi không? hãy xem lại website
+                                của bạn theo danh sách dưới đây:
+                            </p>
+                            <ol class="ml-5">
+                                <li>
+                                    <p>
+                                        Những thông tin tài khoản có được bảo vệ khi lưu trữ
+                                        dưới dạng băm hoặc mã hóa không ?
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Thông tin có thể bị đoán ra hoặc thay thế vì những
+                                        điểm yếu trong các chương trình quản lý tài khoản hay
+                                        không ? (tạo tài khoản, đồi password, lấy lại
+                                        password, điểm yếu trong id phiên làm việc)
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>ID phiên làm việc có hiển thị trong URL không?</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        ID phiên làm việc có thể bị giả mạo bằng các phương
+                                        pháp định hình phiên làm việc hay không?
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Id phiên làm việc có thời gian chờ không và người dùng
+                                        có thể đăng xuất không ?
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Id phiên làm việc có thay đổi sau khi người dùng đăng
+                                        nhập lại không?
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Password, Id phiên làm việc và những thông tin khác có
+                                        được gửi đi sử dụng TLS connection không?
+                                    </p>
+                                </li>
+                            </ol>
+                            <p>Một vài ví dụ:</p>
+                            <p>
+                                Đưa ID người dùng mà không kiểm tra
+                                <span class="high-light">https://www.example.com/session_ID=123</span>
+                            </p>
+                            <p>không mã hóa session_ID của user ở phía Front-end</p>
+                        </div>
+                        <div class="demo d-flex">
+                            <div class="form-group">
+                                <form action="">
+                                    <input type="text"
+                                           class="form-control font-small mb-3"
+                                           placeholder="Nhập vào tài khoản" />
+                                    <input type="password"
+                                           class="form-control font-small mb-3"
+                                           placeholder="Nhập vào mật khẩu" />
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm px-3 py-1">
+                                        Đăng nhập
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        <p>Các cách để khắc phục việc này:</p>
+                        <ol class="ml-5">
+                            <li>
+                                <p>
+                                    Sử dụng SSL, attacker sẽ khó tấn công vào cookies hơn
+                                </p>
+                            </li>
+                            <li>
+                                <p>Sử dụng HTTPOnly Cookie</p>
+                            </li>
+                            <li>
+                                <p>Thiết lập timeOut cho SESSION, COOKIES</p>
+                            </li>
+                            <li>
+                                <p>
+                                    Tuyệt đối không để lộ SessionID qua URL, thay vào đó sử
+                                    dụng Cookie
+                                </p>
+                            </li>
+                            <li>
+                                <p>Mã hóa cookie khi cần thiết</p>
+                            </li>
+                            <li>
+                                <p>Không ghi SessionID ra log</p>
+                            </li>
+                            <li>
+                                <p>
+                                    Kiểm tra password cũ khi đổi. Gửi email xác nhận tới
+                                    email cũ nếu đổi email
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="step-3" class="tab-pane" role="tabpanel">
+                        Step content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

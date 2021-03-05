@@ -1,0 +1,106 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="tab">
+            <div class="page-number h2">
+                <span class="number">7.</span> Missing Function Level Access
+                Control
+                <a href="/" class="mr-auto">Back to index</a>
+            </div>
+
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Tìm hiểu về Missing Function Level Access Control
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-3"> Demo sau khi Ngăn lỗi </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p class="h4">Định nghĩa</p>
+                            <p>
+                                Hầu hết các trang web đều có 1 hàm phân quyền cho người
+                                dùng. Nhưng nếu hàm đó không được đồng bộ thực hiện đúng
+                                đắn như phía người dùng thì kẻ tấn công có thể được lợi
+                                dụng lỗ hỏng này để tấn công vào trang web với những đặc
+                                quyền cao hơn.
+                            </p>
+                            <p>
+                                Đây chỉ là sai sót trong vấn đề phân quyền. Nó có nghĩa là
+                                khi một hàm được gọi trên máy chủ, quá trình phân quyền
+                                không chính xác. Các nhà phát triển dựa vào thực tế là
+                                phía máy chủ tạo ra giao diện người dùng và họ nghĩ rằng
+                                khách hàng không thể truy cập các chức năng nếu không được
+                                cung cấp bởi máy chủ.
+                            </p>
+                            <p>
+                                Tuy nhiên, kẻ tấn công luôn có thể yêu cầu các chức năng
+                                “ẩn” và sẽ không bị cản trở bởi việc giao diện người dùng
+                                không cho phép thực hiện các chức năng này. Hãy tưởng
+                                tượng trong giao diện người dùng chỉ có bảng điều
+                                khiển/admin và nút nếu người dùng thực sự là quản trị
+                                viên. Không có gì ngăn cản kẻ tấn công phát hiện ra những
+                                tính năng này và lạm dụng nó nếu không phân quyền.
+                            </p>
+                            <p>
+                                Thiệt hại có thể dẫn đến mất toàn bộ dữ liệu của doanh
+                                nghiệp của bạn.
+                            </p>
+                        </div>
+                        <div class="demo d-flex">
+                            <div class="form-group">
+                                <form action="">
+                                    <input type="text"
+                                           class="form-control font-small mb-3"
+                                           placeholder="Nhập vào tài khoản" />
+                                    <input type="password"
+                                           class="form-control font-small mb-3"
+                                           placeholder="Nhập vào mật khẩu" />
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm px-3 py-1">
+                                        Đăng nhập
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        <p class="h4">Làm thế nào để ngăn chặn?</p>
+                        <ol class="ml-5">
+                            <li>
+                                <p>
+                                    Ở phía máy chủ, phải luôn được phân quyền một cách triệt
+                                    để từ khâu thiết kế.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Không có ngoại lệ – mọi lỗ hổng sẽ dẫn đến đủ các vấn đề
+                                    nghiêm trọng.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Kiểm định chặt chẽ các dữ liệu bị rò rĩ ở phía Client
+                                    như SessionID, Cookie mà attackers có thể thay đổi nó để
+                                    tấn công vào trang quản trị.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="step-3" class="tab-pane" role="tabpanel">
+                        Step content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,198 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="tab">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <div class="page-number h2">
+                    <span class="number">3.</span> Cross Site Scripting
+                </div>
+                <a href="/">Back to index</a>
+            </div>
+
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Tìm hiểu về Cross Site scripting XSS
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-3"> Demo sau khi ngăn lỗi </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p>
+                                Cross Site Scripting (XSS) là gì ? Là một kiểu tấn công
+                                cho phép hacker chèn vào những đoạn script độc hại (thông
+                                thường là javascript hoặc HTML) vào website và sẽ được
+                                thực thi ở trình duyệt người dùng.
+                            </p>
+                            <p>
+                                Các thông tin có thể bị đánh cắp qua XSS: Email, Mật khẩu,
+                                Cookie truy cập web nào đó của người dùng.
+                            </p>
+                            <p>Mục đích tấn công XSS:</p>
+                            <ul class="list-unstyled pl-5">
+                                <li>
+                                    <p>
+                                        <strong>Cookie</strong> : Hacker có thể lấy được
+                                        cookie của người dùng và dùng thông tin trong cookie
+                                        để giả mạo phiên truy cập.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Keylogging</strong> : Hacker có thể ghi lại
+                                        những thao tác gõ phím của người dùng bắng cách sử
+                                        dụng sự kiện addEventListenner trong javascript sau đó
+                                        sẽ phân tích dữ liệu đó và tìm ra các mật khẩu hay mã
+                                        ngân hàng.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Phishing</strong> : Hacker có thể thay đổi
+                                        giao diện website bằng cách thay đổi cấu trúc
+                                        HTMLtrong trang web để đánh lừa người dùng, khi đó
+                                        chúng có thể tạo các forrm đăng nhập giả để lấy mật
+                                        khẩu.
+                                    </p>
+                                </li>
+                            </ul>
+                            <p>
+                                Giả sử, website chúng ta đang thực hiện việc gửi 1 message
+                                cho user bất kỳ.
+                            </p>
+                            <p>
+                                Hãy thực hiện việc đó với việc chèn đoạn script bên dưới
+                                vào form hoặc click vào đoạn script sau đó ấn Gửi
+                            </p>
+                            <pre>
+                            <code class="html cursor-pointer" onclick="handleClickGetText(this)">
+                &lt;script&gt;alert('hacked!!');&lt;/script&gt;
+                        </code>
+                    </pre>
+                        </div>
+                        <div class="demo d-flex">
+                            <div class="form-group">
+                                <form action="">
+                                    <textarea class="form-control font-small mb-3"
+                                              placeholder="Nhập vào tin nhắn cần gửi"
+                                              rows="4"
+                                              cols="50"
+                                              id="notValidate"></textarea>
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm px-3 py-1">
+                                        Gửi
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        <p class="h3">
+                            1. Sử dụng Regex để Validate Trực tiếp tại phía Client bằng
+                            Javascript
+                        </p>
+                        <pre>
+                        <code class="JavaScript">
+                    const regex = "<(|\ /|[^\ />][^>]+|\/[^>][^>]+)>";
+                    const handleValidate = () => {
+                      let message = document.querySelector("#validate");
+                      let error = document.querySelector(".errorText");
+                      if (message.value == "") {
+                        error.innerText = "Tin nhắn không được để trống";
+                        message.classList.add("error");
+                        message.focus();
+                        return false;
+                      }
+                      if (message.value.match(regex)) {
+                        error.innerText = "Tin nhắn nhập vào không hợp lệ!!";
+                        message.classList.add("error");
+                        message.focus();
+                        return false;
+                      }
+                
+                      return true;
+                    };
+                      </code>
+                  </pre>
+                        <p class="h3">2. Validate tại phía Server</p>
+                    </div>
+                    <div id="step-3" class="tab-pane" role="tabpanel">
+                        <div id="step-1" class="tab-pane" role="tabpanel">
+                            <div class="content">
+                                <p>
+                                    Sau khi ràng buộc dữ liệu thành công, hãy thử nhập vào
+                                    tin nhắn bất kỳ và một đoạn script như phía ví dụ
+                                </p>
+                                <pre>
+                                <code class="html cursor-pointer" onclick="handleClickGetText2(this)">
+                &lt;script&gt;alert('hacked!!');&lt;/script&gt;
+                        </code>
+                    </pre>
+                            </div>
+                            <div class="demo d-flex">
+                                <div class="form-group">
+                                    <form name="formValue"
+                                          onsubmit="return(handleValidate());">
+                                        <textarea class="form-control font-small mb-3"
+                                                  placeholder="Nhập vào tin nhắn cần gửi"
+                                                  rows="4"
+                                                  cols="50"
+                                                  name="message"
+                                                  id="validate"></textarea>
+                                        <p class="errorText text-danger pl-2 alert-danger"></p>
+                                        <button type="submit"
+                                                class="btn btn-primary btn-sm px-3 py-1">
+                                            Gửi
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function handleClickGetText(e) {
+            const textArea = document.querySelector("#notValidate");
+            textArea.innerText = e.innerText;
+        }
+
+        function handleClickGetText2(e) {
+            const textArea = document.querySelector("#validate");
+            textArea.innerText = e.innerText;
+        }
+
+        const regex = "<(|\/|[^\/>][^>]+|\/[^>][^>]+)>";
+        const handleValidate = () => {
+            let message = document.querySelector("#validate");
+            let error = document.querySelector(".errorText");
+            if (message.value == "") {
+                error.innerText = "Tin nhắn không được để trống";
+                message.classList.add("error");
+                message.focus();
+                return false;
+            }
+            if (message.value.match(regex)) {
+                error.innerText = "Tin nhắn nhập vào không hợp lệ!!";
+                message.classList.add("error");
+                message.focus();
+                return false;
+            }
+
+            return true;
+        };
+    </script>
+}  
