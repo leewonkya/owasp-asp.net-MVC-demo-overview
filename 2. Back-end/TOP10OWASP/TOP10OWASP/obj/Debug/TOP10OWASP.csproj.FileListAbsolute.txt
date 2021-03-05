@@ -77,3 +77,7 @@ C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\
 C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\obj\Debug\TOP10OWASP.csproj.CopyComplete
 C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\obj\Debug\TOP10OWASP.dll
 C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\obj\Debug\TOP10OWASP.pdb
+C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\bin\EntityFramework.dll
+C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\bin\EntityFramework.SqlServer.dll
+C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\bin\EntityFramework.xml
+C:\Users\leewo\Desktop\DOAN_THUCTAP_TOTNGHIEP\2. Back-end\TOP10OWASP\TOP10OWASP\bin\EntityFramework.SqlServer.xml
