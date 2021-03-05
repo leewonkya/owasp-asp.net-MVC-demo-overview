@@ -64,6 +64,13 @@ INSERT INTO USERACCOUNTOWASP(USERNAME, PASSWORD, NAME, ROLE) VALUES('admin', HAS
 INSERT INTO USERACCOUNTOWASP(USERNAME, PASSWORD, NAME, ROLE) VALUES('user1', HASHBYTES('MD5', 'user1'), 'user1', 'user');
 INSERT INTO USERACCOUNTOWASP(USERNAME, PASSWORD, NAME, ROLE) VALUES('user2', HASHBYTES('MD5', 'user2'), 'user2', 'user');
 
+update USERACCOUNTOWASP set PASSWORD =  HASHBYTES('md5', 'admin') where id = 1
+
+select * from USERACCOUNTOWASP
+
+select convert(varchar(32), HASHBYTES('md5', 'admin'), 2)
+select CONVERT(varchar(32), master.sys.fn_repl_hash_binary(0x21232F297A57A5A743894A0E4A801FC3), 2)
+
 INSERT INTO CATEGORY(NAME)  VALUES('COFFEE');
 INSERT INTO CATEGORY(NAME)  VALUES('TEA');
 INSERT INTO CATEGORY(NAME)  VALUES('CHOCOLATE');
@@ -88,3 +95,15 @@ select * from USERACCOUNT
 select password from  USERACCOUNTOWASP where id = 1
 
 select * from USERACCOUNT where PASSWORD = 'Dev' or 'a'='a'
+
+
+DECLARE @Ciphertext varbinary(32)
+
+DECLARE @Plaintext varchar
+DECLARE @LEN int
+SET @Plaintext = 'admin'
+set @Ciphertext = HashBytes('MD5', @Plaintext)
+SET @LEN = LEN(@Ciphertext)
+print @Ciphertext
+print '--'
+print @LEN
