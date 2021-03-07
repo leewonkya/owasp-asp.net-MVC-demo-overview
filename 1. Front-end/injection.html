@@ -75,26 +75,7 @@
                     </p>
                   </div>
                   <div class="demo d-flex">
-                    <div class="form-group">
-                      <form action="">
-                        <input
-                          type="text"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào tài khoản"
-                        />
-                        <input
-                          type="password"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào mật khẩu"
-                        />
-                        <button
-                          type="submit"
-                          class="btn btn-primary btn-sm px-3 py-1"
-                        >
-                          Đăng nhập
-                        </button>
-                      </form>
-                    </div>
+                    
                   </div>
                 </div>
                 <div id="step-2" class="tab-pane" role="tabpanel">
@@ -116,7 +97,33 @@
                     </pre>
                 </div>
                 <div id="step-3" class="tab-pane" role="tabpanel">
-                  Step content
+                  <div class="form-group">
+                    <form action="" onsubmit="return(handleValidate());">
+                      <input
+                        type="text"
+                        class="form-control font-small mb-3"
+                        placeholder="Nhập vào tài khoản"
+                        name="username"
+                        id="username"
+                      />
+                      <input
+                        type="password"
+                        class="form-control font-small mb-3"
+                        placeholder="Nhập vào mật khẩu"
+                        name="password"
+                        id="password"
+                      />
+                      <p
+                            class="errorText text-danger pl-2 alert-danger"
+                          ></p>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-sm px-3 py-1 btn-submit"
+                      >
+                        Đăng nhập
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -142,5 +149,9 @@
   <!-- <script src="./js/script.js"></script> -->
   <script src="./js/script.js"></script>
 
-  
+  <script>
+    $(".btn-submit").on("click", function(){
+      alert(1);
+    })
+  </script>
 </html>

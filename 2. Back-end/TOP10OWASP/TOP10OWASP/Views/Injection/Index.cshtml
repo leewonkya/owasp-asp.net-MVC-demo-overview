@@ -89,18 +89,23 @@
                         
                         <div class="demo d-flex">
                             <div class="form-group">
-                                @using (Html.BeginForm("LoginByOwasp", "Injection", FormMethod.Post))
+                                @using (Html.BeginForm("LoginByOwasp", "Injection", FormMethod.Post, new { @id = "formOwasp" }))
                                 {
                                     <input type="text"
                                            class="form-control font-small mb-3"
-                                           name="username"
-                                           placeholder="Nhập vào tài khoản" />
+                                           name="username"                                           
+                                           placeholder="Nhập vào tài khoản"
+                                           id="username"
+                                           required />                                           
                                     <input type="password"
                                            class="form-control font-small mb-3"
                                            name="password"
-                                           placeholder="Nhập vào mật khẩu" />
-                                    <button type="submit"
-                                            class="btn btn-primary btn-sm px-3 py-1">
+                                           placeholder="Nhập vào mật khẩu" 
+                                           id="password"
+                                           required/>
+                                    <p class="errorText text-danger pl-2 alert-danger"></p>
+                                    <button type="button"
+                                            class="btn btn-primary btn-sm px-3 py-1 " id="btn-submit">
                                         Đăng nhập
                                     </button>
                                 }
@@ -112,3 +117,54 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        $("#btn-submit").click(function () {
+            var data = $("#formOwasp").serialize();
+            $.ajax({
+                url: "@Url.Action("LoginByOwasp", "Injection")",
+                type: "GET",
+                data: data,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (response) {
+                        alert(response);
+                    
+                },
+                error: function (xhr) {
+                    console.log("xhr", xhr);
+                }
+
+            });
+        });
+    //const regex = "<(|\/|[^\/>][^>]+|\/[^>][^>]+)>";
+    //const handleValidate = () => {
+    //  let username = document.querySelector("#username");
+    //  let password = document.querySelector("#password");
+    //  let error = document.querySelector(".errorText");
+    //  if (username.value == "" || password.value == "") {
+    //    error.innerText = "Dữ liệu không được để trống";
+    //      username.classList.add("error");
+    //      username.focus();
+    //      password.classList.add("error");
+    //      password.focus();
+    //    return false;
+    //  }
+    //  else if (username.value.match(regex) || password.value.match(regex)) {
+    //    error.innerText = "Dữ liệu nhập vào không hợp lệ!!";
+    //      username.classList.add("error");
+    //      username.focus();
+    //      password.classList.add("error");
+    //      password.focus();
+    //    return false;
+    //  }
+    //  else{
+    //    return true;
+    //  }
+    //};
+
+    </script>    
+}

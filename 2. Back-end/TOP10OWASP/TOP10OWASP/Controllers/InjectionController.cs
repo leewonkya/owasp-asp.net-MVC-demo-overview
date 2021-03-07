@@ -18,39 +18,38 @@ namespace TOP10OWASP.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost]        
         public ActionResult LoginByInjection(string username, string password)
         {
             var model = _db.USERACCOUNTs.SqlQuery("SELECT * FROM USERACCOUNT WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "'").ToList();
             return View(model);
         }
 
-        [HttpPost]
-        public ActionResult LoginByOwasp(string username, string password)
-        {            
-            if(username == null || password == null)
+        [HttpGet]
+        public ActionResult LoginByOwasp(USERACCOUNT obj)
+        {
+            var checkUser = _db.USERACCOUNTOWASPs.Where(x => x.USERNAME.Equals(obj.USERNAME)).SingleOrDefault();
+            if (checkUser == null)
             {
-                return RedirectToAction("Index"); 
-            }
-            var checkUser = _db.USERACCOUNTOWASPs.Where(x => x.USERNAME.Equals(username)).SingleOrDefault();
-            if(checkUser == null)
-            {                ViewBag.message = "Tài khoản không tồn tại";
-                return RedirectToAction("Index");
-
+                return Json("Tài khoản không tồn tại", JsonRequestBehavior.AllowGet);
             }
             else
             {
-                string passwordEncodeUser = EncodeFromUser(password);
+                string passwordEncodeUser = EncodeFromUser(obj.PASSWORD);
                 string passwordEncodeFromDb = EncodeFromDb(checkUser.PASSWORD);
 
                 if (passwordEncodeUser.Equals(passwordEncodeFromDb))
                 {
-                    return View(checkUser);
+                    return Json("Xin chào " + checkUser.NAME, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json("Mật khẩu không chính xác", JsonRequestBehavior.AllowGet);
                 }
             }
-
-            return RedirectToAction("Error");
         }
+
+        
 
         public ActionResult Error()
         {
