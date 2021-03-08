@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using TOP10OWASP.Common;
 using TOP10OWASP.Models;
 
 namespace TOP10OWASP.Controllers
@@ -13,6 +14,7 @@ namespace TOP10OWASP.Controllers
     {
         // GET: Injection
         private TOP10OWASPEntities _db = new TOP10OWASPEntities();
+        cEncode code = new cEncode();
         public ActionResult Index()
         {
             return View();
@@ -35,8 +37,8 @@ namespace TOP10OWASP.Controllers
             }
             else
             {
-                string passwordEncodeUser = EncodeFromUser(obj.PASSWORD);
-                string passwordEncodeFromDb = EncodeFromDb(checkUser.PASSWORD);
+                string passwordEncodeUser = code.EncodeFromUser(obj.PASSWORD);
+                string passwordEncodeFromDb = code.EncodeFromDb(checkUser.PASSWORD);
 
                 if (passwordEncodeUser.Equals(passwordEncodeFromDb))
                 {
@@ -47,41 +49,11 @@ namespace TOP10OWASP.Controllers
                     return Json("Mật khẩu không chính xác", JsonRequestBehavior.AllowGet);
                 }
             }
-        }
-
-        
+        }               
 
         public ActionResult Error()
         {
             return View();
         }
-
-        private string EncodeFromDb(byte[] input)
-        {
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            byte[] hashBytes = input;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hashBytes.Length; i++)
-            {
-                sb.Append(hashBytes[i].ToString("x2"));
-            }
-            return sb.ToString();
-        }
-        
-        private string EncodeFromUser(string input)
-        {
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
-            byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-            // Convert the byte array to hexadecimal string
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hashBytes.Length; i++)
-            {
-                sb.Append(hashBytes[i].ToString("x2"));
-            }
-            return sb.ToString();
-        }
-
     }
 }

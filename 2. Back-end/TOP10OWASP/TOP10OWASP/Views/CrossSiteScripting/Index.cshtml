@@ -80,17 +80,23 @@
                         </div>
                         <div class="demo d-flex">
                             <div class="form-group">
-                                <form action="">
-                                    <textarea class="form-control font-small mb-3"
-                                              placeholder="Nhập vào tin nhắn cần gửi"
-                                              rows="4"
-                                              cols="50"
-                                              id="notValidate"></textarea>
-                                    <button type="submit"
-                                            class="btn btn-primary btn-sm px-3 py-1">
-                                        Gửi
-                                    </button>
-                                </form>
+                                @using (Html.BeginForm("xss", "CrossSiteScripting", FormMethod.Post, new {@id = "form-error" }))
+                                {
+                                <textarea class="form-control font-small mb-3"
+                                          placeholder="Nhập vào tin nhắn cần gửi"
+                                          name="message"
+                                          rows="4"
+                                          cols="50"
+                                          id="notValidate"></textarea>
+                                <button type="submit"
+                                        id="btn-submit-error"
+                                        class="btn btn-primary btn-sm px-3 py-1">                                         
+                                    
+                                    Gửi
+                                </button>
+                                }
+
+
                             </div>
                         </div>
                     </div>
@@ -139,20 +145,41 @@
                             </div>
                             <div class="demo d-flex">
                                 <div class="form-group">
-                                    <form name="formValue"
+                                    @using (Html.BeginForm("xssOwasp", "CrossSiteScripting", FormMethod.Post, new { @onsubmit = "return(handleValidate());", @id = "formOwasp" }))
+                                    {
+                                        <textarea class="form-control font-small mb-3"
+                                                  placeholder="Nhập vào tin nhắn cần gửi"
+                                                  rows="4"
+                                                  cols="50"
+                                                  name="message"
+                                                  id="validate"
+                                                  required></textarea>
+                                        <p class="errorText text-danger pl-2 alert-danger"></p>
+                                        <button type="submit"
+                                                class="btn btn-primary btn-sm px-3 py-1"
+                                                id="btn-submit">
+                                            Gửi
+                                        </button>
+                                    }
+                                    @*<form name="formValue"
+                                          id="formOwasp"
+                                          method="POST"
+                                          action="@Url.Action("xssOwasp", "CrossSiteScripting")"
                                           onsubmit="return(handleValidate());">
                                         <textarea class="form-control font-small mb-3"
                                                   placeholder="Nhập vào tin nhắn cần gửi"
                                                   rows="4"
                                                   cols="50"
                                                   name="message"
-                                                  id="validate"></textarea>
+                                                  id="validate"
+                                                  required></textarea>
                                         <p class="errorText text-danger pl-2 alert-danger"></p>
                                         <button type="submit"
-                                                class="btn btn-primary btn-sm px-3 py-1">
+                                                class="btn btn-primary btn-sm px-3 py-1"
+                                                id="btn-submit">
                                             Gửi
                                         </button>
-                                    </form>
+                                    </form>*@
                                 </div>
                             </div>
                         </div>
@@ -191,8 +218,7 @@
                 message.focus();
                 return false;
             }
-
             return true;
         };
     </script>
-}  
+}

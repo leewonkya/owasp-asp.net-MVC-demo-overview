@@ -92,13 +92,26 @@
                                 </li>
                             </ol>
                         </div>
-                        <div class="demo d-flex">
-                            <div class="form-group">
-                                <select name="" id="" class="form-control">
-                                    <option value="1123213123213">1123213123213</option>
-                                    <option value="1123213123213">1123213123213</option>
-                                    <option value="1123213123213">1123213123213</option>
-                                </select>
+                        <div class="demo">
+                            <div class="form-group row">
+                                <div class="col-4">
+                                    @Html.DropDownList("Category", (IEnumerable<SelectListItem>)ViewBag.list, new { @class = "form-control form-control-sm" })                                    
+                                </div>
+                                <div class="col-1">
+                                    <button type="button"
+                                            class="btn btn-primary btn-sm px-3 py-1">
+                                    Xem
+                                    </button>
+                                </div>
+                                <div class="col-4">
+                                    @Html.DropDownList("CategoryOwasp", (IEnumerable<SelectListItem>)ViewBag.listOwasp, new { @class = "form-control form-control-sm" })                                    
+                                </div>
+                                <div class="col-1">
+                                    <button type="button"
+                                            class="btn btn-primary btn-sm px-3 py-1">
+                                    Xem
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

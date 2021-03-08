@@ -13,5 +13,10 @@ namespace TOP10OWASP.Controllers
         {
             return View();
         }
+
+        public ActionResult ShowException()
+        {
+            throw new Exception("Khi bạn nhìn thấy lỗi này, Hacker có thể tìm ra lỗ hỏng và tấn công vào hệ thống của bạn!!");
+        }
     }
 }

@@ -128,8 +128,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\adminowasp\adminowaspAreaRegistration.cs" />
+    <Compile Include="Areas\adminowasp\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\homeAdminController.cs" />
+    <Compile Include="Common\cEncode.cs" />
+    <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\BrokenAuthenticationAndSessionManagementController.cs" />
     <Compile Include="Controllers\CrossSiteRequestForgeryController.cs" />
     <Compile Include="Controllers\CrossSiteScriptingController.cs" />
@@ -219,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\adminowasp\Data\" />
     <Folder Include="Areas\admin\Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +242,13 @@
     <Content Include="Models\TOP10OWASPModel.edmx.diagram">
       <DependentUpon>TOP10OWASPModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\admin\Views\homeAdmin\Error.cshtml" />
+    <Content Include="Areas\adminowasp\Views\web.config" />
+    <Content Include="Areas\adminowasp\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\adminowasp\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\adminowasp\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\adminowasp\Views\HomeAdmin\Error.cshtml" />
+    <Content Include="Areas\admin\Views\homeAdmin\Index2.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Injection\Index.cshtml" />
     <Content Include="Views\BrokenAuthenticationAndSessionManagement\Index.cshtml" />
@@ -251,6 +263,12 @@
     <Content Include="Views\Injection\LoginByInjection.cshtml" />
     <Content Include="Views\Injection\Error.cshtml" />
     <Content Include="Views\Injection\LoginByOwasp.cshtml" />
+    <Content Include="Views\CrossSiteScripting\xss.cshtml" />
+    <Content Include="Views\CrossSiteScripting\xssOwasp.cshtml" />
+    <Content Include="Views\BrokenAuthenticationAndSessionManagement\Login.cshtml" />
+    <Content Include="Views\BrokenAuthenticationAndSessionManagement\LoginWithOwasp.cshtml" />
+    <Content Include="Views\MissingFunctionLevelAccessControl\Login.cshtml" />
+    <Content Include="Views\MissingFunctionLevelAccessControl\LoginWithOwasp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

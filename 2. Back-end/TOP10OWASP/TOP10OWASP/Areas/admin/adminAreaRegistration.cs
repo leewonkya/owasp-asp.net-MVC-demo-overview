@@ -17,7 +17,7 @@ namespace TOP10OWASP.Areas.admin
             context.MapRoute(
                 "admin_default",
                 "admin/{controller}/{action}/{id}",
-                new {controller="homeAdmin", action = "Index", id = UrlParameter.Optional }
+                new {controller="homeAdmin", action = "Index", id = UrlParameter.Optional }                
             );
         }
     }
