@@ -267,7 +267,6 @@
     <Content Include="Views\UnvalidateRedirectsAndForwards\Index.cshtml" />
     <Content Include="Views\UsingComponentWithKnownVulnerabilities\Index.cshtml" />
     <Content Include="Views\Injection\LoginByInjection.cshtml" />
-    <Content Include="Views\Injection\Error.cshtml" />
     <Content Include="Views\Injection\LoginByOwasp.cshtml" />
     <Content Include="Views\CrossSiteScripting\xss.cshtml" />
     <Content Include="Views\CrossSiteScripting\xssOwasp.cshtml" />
