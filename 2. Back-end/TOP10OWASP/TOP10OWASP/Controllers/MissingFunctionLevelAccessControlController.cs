@@ -18,21 +18,6 @@ namespace TOP10OWASP.Controllers
             return View();
         }
 
-        public ActionResult Login(string username, string password)
-        {
-            var model = _db.USERACCOUNTs.Where(x => x.USERNAME.Equals(username) && x.PASSWORD.Equals(password)).SingleOrDefault();
-
-            var userSession = new UserLogin();
-            userSession.role = model.ROLE;
-            Session.Add("SESSION_ROLE", userSession);
-
-            string roles = model.ROLE;
-            HttpCookie myCookie = new HttpCookie("dataType", roles);
-            myCookie.Expires = DateTime.Now.AddDays(1);
-            Response.Cookies.Add(myCookie);
-            return View(model);
-        }
-
         public ActionResult LoginWithOwasp(string username, string password)
         {
             var model = _db.USERACCOUNTOWASPs.Where(x => x.USERNAME.Equals(username)).SingleOrDefault();
@@ -46,10 +31,10 @@ namespace TOP10OWASP.Controllers
                 {
                     var userSession = new UserLogin();
                     userSession.role = model.ROLE;
-                    Session.Add("SESSION_ROLE", userSession);
+                    Session.Add("session_role", userSession);
 
 
-                    HttpCookie myCookie = new HttpCookie("USER_SESSION", code.EncodeFromUser(model.ID.ToString()));
+                    HttpCookie myCookie = new HttpCookie("user_session", code.EncodeFromUser(model.ID.ToString()));
                     myCookie.Expires = DateTime.Now.AddDays(1);
                     Response.Cookies.Add(myCookie);
                     return View(model);

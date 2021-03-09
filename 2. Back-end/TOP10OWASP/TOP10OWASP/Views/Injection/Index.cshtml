@@ -68,25 +68,20 @@
                         </div>
                     </div>
                     <div id="step-2" class="tab-pane" role="tabpanel">
-                        <pre>
-                        <code class="C#">
-          public class Customer : IIdEntity<int>
-                          {
-                              public int Id { get; set; }
-                              public string Name { get; set; }
-                              public string Address { get; set; }
-                              public string Email { get; set; }
-                              public string Phone { get; set; }
-                              public CustomerStatus Status { get; set; }
-                              public DateTime CreatedDate { get; set; }
-                              public virtual int? CustomerTypeId { get; set; }
-                              public virtual CustomerType CustomerType { get; set; }
-                          }
-                      </code>
-                    </pre>
+                        <p class="h4">Có rất nhiều cách để phòng chống tấn công Injection như:</p>
+                        <ol class="ml-5">
+                            <li><p>Phổ biến nhất đó là sử dụng các framework hiện nay để lọc đầu vào hiệu quả nhất. </p></li>
+                            <li><p>Sử dụng Params hoặc thủ tục lưu trữ (StoreProcedure) trong Cơ sở dữ liệu. </p></li>
+                            <li><p>Sử dụng Regular Expression để lọc đầu vào dạng Chuỗi và Số. </p></li>
+                            <li><p>Thực hiện xác thực nhiều tầng, Ví dụ như xác thực tài khoản tồn tại, sau đó thực hiện mã hóa mật khẩu nhập vào để kiểm tra so với Database.</p></li>
+                            <li><p>Không hiển thị Exception để tránh Attackers tìm ra lỗ hỏng bảo mật. </p></li>
+                            <li><p>Thường xuyên Backup Dữ liệu, lọc các dữ liệu mẫu khi bắt đầu thực hiện giai đoạn code để tránh Attackers khai thác </p></li>
+                        </ol>
                     </div>
                     <div id="step-3" class="tab-pane" role="tabpanel">
-                        
+                        <div class="content">
+                            <p>Giờ hãy thử thực hiện việc tấn công bằng Injection như lúc tìm hiểu và xem kết quả</p>
+                        </div>
                         <div class="demo d-flex">
                             <div class="form-group">
                                 @using (Html.BeginForm("LoginByOwasp", "Injection", FormMethod.Post, new { @id = "formOwasp" }))

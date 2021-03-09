@@ -254,6 +254,7 @@
     <Content Include="Areas\adminowasp\Views\HomeAdmin\Index.cshtml" />
     <Content Include="Areas\adminowasp\Views\HomeAdmin\Error.cshtml" />
     <Content Include="Areas\admin\Views\homeAdmin\Index2.cshtml" />
+    <Content Include="Areas\adminowasp\Views\HomeAdmin\Index2.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Injection\Index.cshtml" />
     <Content Include="Views\BrokenAuthenticationAndSessionManagement\Index.cshtml" />
@@ -272,7 +273,6 @@
     <Content Include="Views\CrossSiteScripting\xssOwasp.cshtml" />
     <Content Include="Views\BrokenAuthenticationAndSessionManagement\Login.cshtml" />
     <Content Include="Views\BrokenAuthenticationAndSessionManagement\LoginWithOwasp.cshtml" />
-    <Content Include="Views\MissingFunctionLevelAccessControl\Login.cshtml" />
     <Content Include="Views\MissingFunctionLevelAccessControl\LoginWithOwasp.cshtml" />
     <Content Include="Views\InsecureDirectObjectReferences\Login.cshtml" />
     <Content Include="Views\InsecureDirectObjectReferences\Error.cshtml" />

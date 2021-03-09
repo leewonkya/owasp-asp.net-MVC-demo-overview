@@ -24,6 +24,7 @@
                 <div class="tab-content">
                     <div id="step-1" class="tab-pane" role="tabpanel">
                         <div class="content">
+                            <p>Tấn công bằng Insecure Direct Object References có thể gây hậu quả cực kỳ <span class="text-danger font-weight-bold">nghiêm trọng</span></p>. Giả sử cuộc tấn công không nằm ở demo mà là ở 1 hệ thống khác như Ngân hàng, các hệ thống CMS lớn thì thiệt hại rất lớn.
                             <p class="h3">Hình thức tấn công:</p>
                             <div class="ml-4">
                                 <p>
@@ -50,16 +51,16 @@
                                     Hãy thử thực hiện chức năng đăng nhập vào form đăng nhập
                                     bên dưới với tài khoản là
                                     <span class="high-light">user1</span> và mật khẩu là
-                                    <span class="high-light">123</span>
+                                    <span class="high-light">user1</span>
                                 </p>
+                                <p>Chọn vào xem thông tin</p>
                                 <p>
-                                    Sau đó nhìn trên địa chỉ website, hãy thử thay đổi đường
-                                    dẫn <span class="high-light">...</span> thành
-                                    <span class="high-light">...</span>
+                                    Sau đó nhìn trên địa chỉ website, hãy thử thay đổi Số trên đường dẫn từ số 2 thành <span class="text-danger font-weight-bold">1</span> hoặc <span class="text-danger font-weight-bold">3</span>
                                 </p>
                                 <p>
                                     Vậy là có thể trực tiếp sở hữu tài khoản của người khác.
                                 </p>
+                                
                             </div>
                         </div>
                         <div class="demo d-flex">
@@ -86,20 +87,29 @@
                         <p class="h3">Hình thức phòng thủ</p>
                         <ol class="ml-5">
                             <li>
-                                Chỉ validate tại phía front - end là chưa đủ. Phải ràng
-                                buộc chặt kỹ ở phía server
+                                <p>
+                                    Chỉ validate tại phía front - end là chưa đủ. Phải ràng
+                                    buộc chặt kỹ ở phía server
+                                </p>
                             </li>
                             <li>
-                                Phân quyền phải rõ ràng, chỉ những user có role là Admin
-                                thì mới được phép truy cập vào trang user
+                                <p>
+                                    Phân quyền phải rõ ràng, chỉ những người dùng có quyền là quản trị viên hoặc chính họ
+                                    thì mới được phép truy cập vào thông tin của họ.
+                                </p>
                             </li>
                             <li>
-                                Khi làm việc với API cũng nên kiểm tra xem user đó có thực
-                                sự đủ quyền để có thể truy cập hay không.
+                                <p>
+                                    Khi làm việc với API cũng nên kiểm tra xem user đó có thực
+                                    sự đủ quyền để có thể truy cập hay không.
+                                </p>
                             </li>
                         </ol>
                     </div>
                     <div id="step-3" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p>Giờ hãy thử thực hiện lại việc tấn công tương tự như phần giới thiệu.</p>
+                        </div>
                         <div class="demo d-flex">
                             <div class="form-group">
                                 @using (Html.BeginForm("LoginWithOwasp", "InsecureDirectObjectReferences", FormMethod.Post))

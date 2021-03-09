@@ -1,1 +1,126 @@
-﻿<h1>Just update</h1>
+﻿<div class="row">
+    <div class="col-12">
+        <div class="tab">
+            <div class="page-number h3">
+                <span class="number">10.</span> UnvalidatedRedirects And Forwards
+                (Chuyển hướng không an toàn)
+                <a href="/" class="mr-auto">Back to index</a>
+            </div>
+
+            <div id="smartwizard">
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="#step-1">
+                            Tìm hiểu về UnvalidatedRedirects And Forwards
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="step-1" class="tab-pane" role="tabpanel">
+                        <div class="content">
+                            <p class="h3">Ví dụ</p>
+                            <div class="ml-4">
+                                <p>
+                                    Một liên kết hợp lệ khi truy cập vào hệ thống như:
+                                    <a href="https://www.example.com/Login?role=1?continue=https://www.example.com" target="_blank">Safe Link</a>
+                                </p>
+                                <p>
+                                    Tuy nhiên Attackers có thể tạo một đường dẫn giả mạo
+                                    người dùng dẫn đến địa chỉ độc hại như:
+                                    <a href="https://www.example.com/Login?role=1?continue=https://hacked.com" target="_blank">Safe Link</a>
+                                    
+                                </p>
+                                <p>Nhìn qua thì có vẻ an toàn tuy nhiên đường dẫn sẽ đưa người dùng đến một website không an toàn, thực hiện việc đánh cắp dữ liệu của người dùng.</p>
+                                <p>
+                                    Một khi người dùng truy cập vào website đó có thể sẽ bị
+                                    các Attackers lừa đảo chiếm đoạt toàn bộ thông tin của
+                                    họ.
+                                </p>
+                            </div>
+                            <p class="h3">
+                                Xác định vấn đề và tại sao phải sử dụng chuyển hướng &
+                                chuyển tiếp
+                            </p>
+                            <p class="h5">Vấn đề:</p>
+                            <ol class="ml-5">
+                                <li>
+                                    <p>
+                                        <strong>Tác nhân đe dọa</strong>: Bất kỳ ai cũng có
+                                        thể giả mạo một link để lừa người dùng truy cập vào.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Phương pháp tấn công</strong>: Attacker sử
+                                        dụng liên kết để chuyển hướng truy cập và lừa để nạn
+                                        nhân click vào đó. Nạn nhân có nhiều khả năng nhấp vào
+                                        nó, vì các liên kết là một trang web hợp lệ.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Điểm yếu bảo mật</strong>: Ứng dụng thường
+                                        xuyên chuyển hướng người dùng đến các trang khác. Đôi
+                                        khi các trang đến được quy định trong một tham số
+                                        thiếu chứng thực, cho phép kẻ tấn công để lựa chọn các
+                                        trang đích.
+                                    </p>
+                                </li>
+                            </ol>
+                            <p class="h5">
+                                Tại sao sử dụng chuyển hướng và chuyển tiếp:
+                            </p>
+                            <ol class="ml-5">
+                                <li>
+                                    <p>
+                                        Giống như tên miền của một website (Người ta sẽ sử
+                                        dụng tên miền thay cho địa chỉ ip): Chuyển hướng để
+                                        tránh những sai sót khi gõ thủ công đích đến.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Để chuyển trang. Thao tác dễ dàng, nhanh chóng, thuận
+                                        tiện hơn
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Rút ngắn link gốc: liên kết trên các trang web thường
+                                        làm cho một liên kết ngắn hơn
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="step-2" class="tab-pane" role="tabpanel">
+                        <p class="h4">Cách phát hiện</p>
+                        <div class="ml-4">
+                            <p>
+                                Các trình duyệt hiện nay cũng tích hơp chức năng để cảnh
+                                báo nếu người dùng click vào những liên kết nghi ngờ là
+                                không an toàn.
+                            </p>
+                            <p>Dùng tool: ví dụ Frontpage của Microsoft.</p>
+                        </div>
+                        <p class="h4">Cách phòng chống</p>
+                        <div class="ml-4">
+                            <p>
+                                Tham khảo cách phòng chống của
+                                <a href="/CrossSiteRequestForgery#step-2"
+                                   target="_blank">Cross-SiteRequestForgery</a>
+                            </p>
+                            <p>Sử dụng phần mềm security internet.</p>
+                            <p>Luôn cập nhật trình duyệt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <a href="/" class="btn btn-primary btn-sm mt-3 px-3 py-1">Về trang chủ</a> -->
+    </div>
+</div>

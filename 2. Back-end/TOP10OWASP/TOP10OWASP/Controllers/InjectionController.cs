@@ -49,11 +49,6 @@ namespace TOP10OWASP.Controllers
                     return Json("Mật khẩu không chính xác", JsonRequestBehavior.AllowGet);
                 }
             }
-        }               
-
-        public ActionResult Error()
-        {
-            return View();
-        }
+        }         
     }
 }

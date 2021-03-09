@@ -29,100 +29,132 @@
       <div class="row">
         <div class="col-12">
           <div class="tab">
-            <div class="page-number h2">
-              <span class="number">1.</span> Injection
+            <div class="page-number h3">
+              <span class="number">10.</span> UnvalidatedRedirects And Forwards
+              (Chuyển hướng không an toàn)
               <a href="/" class="mr-auto">Back to index</a>
             </div>
-            
-           
+
             <div id="smartwizard">
               <ul class="nav">
                 <li>
-                  <a class="nav-link" href="#step-1"> Tìm hiểu về Injection </a>                  
+                  <a class="nav-link" href="#step-1">
+                    Tìm hiểu về UnvalidatedRedirects And Forwards
+                  </a>
                 </li>
                 <li>
                   <a class="nav-link" href="#step-2"> Hướng giải quyết </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#step-3"> Demo sau khi Ngăn lỗi Injection </a>
                 </li>
               </ul>
 
               <div class="tab-content">
                 <div id="step-1" class="tab-pane" role="tabpanel">
                   <div class="content">
-                    <p>
-                      SQL Injection là một kỹ thuật lợi dụng những lỗ hổng về câu truy
-                      vấn của các ứng dụng. Được thực hiện bằng cách chèn thêm một
-                      đoạn SQL để làm sai lệnh đi câu truy vấn ban đầu, từ đó có thể
-                      khai thác dữ liệu từ database. SQL injection có thể cho phép
-                      những kẻ tấn công thực hiện các thao tác như một người quản trị
-                      web, trên cơ sở dữ liệu của ứng dụng.
-                    </p>
-                    <p>
-                      Thông thường các nơi bị tấn công sẽ là các ô nhập liệu ở bất kỳ
-                      đâu trên website của bạn!
-                    </p>
-                    <p>
-                      Dữ liệu tấn công sẽ có 2 loại là:
-                      <strong>String text</strong> và <strong>Number</strong>
-                    </p>
-                    <p>Giả sử, website chúng ta có chức năng là đăng nhập.</p>
-                    <p>Hãy thực hiện chức năng đăng nhập với tài khoản là <span class="high-light">admin</span> và mật khẩu là <span class="high-light">admin</span></p>
-                    <p>
-                      Giờ hãy thử Nhập vào cả 2 ô Dữ liệu theo ví dụ như sau
-                      <span class="high-light">123456 or 1=1</span>
-                      hoặc <span class="high-light">Dev' or 'a'='a'</span>
-                    </p>
-                  </div>
-                  <div class="demo d-flex">
-                    <div class="form-group">
-                      <form action="">
-                        <input
-                          type="text"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào tài khoản"
-                        />
-                        <input
-                          type="password"
-                          class="form-control font-small mb-3"
-                          placeholder="Nhập vào mật khẩu"
-                        />
-                        <button
-                          type="submit"
-                          class="btn btn-primary btn-sm px-3 py-1"
+                    <p class="h3">Ví dụ</p>
+                    <div class="ml-4">
+                      <p>
+                        Một liên kết hợp lệ khi truy cập vào hệ thống như:
+                        <a
+                          href="https://www.example.com/Login?role=1?continue=https://www.example.com"
+                          >https://www.example.com/Login?role=1?continue=https://www.example.com</a
                         >
-                          Đăng nhập
-                        </button>
-                      </form>
+                      </p>
+                      <p>
+                        Tuy nhiên Attackers có thể tạo một đường dẫn giả mạo
+                        người dùng dẫn đến địa chỉ độc hại như:
+                        <a
+                          href="https://www.example.com/Login?role=1?continue=https://hacked.com"
+                          >https://www.example.com/Login?role=1?continue=https://hacked.com</a
+                        >
+                      </p>
+                      <p>
+                        Một khi người dùng truy cập vào website đó có thể sẽ bị
+                        các Attackers lừa đảo chiếm đoạt toàn bộ thông tin của
+                        họ.
+                      </p>
                     </div>
+                    <p class="h3">
+                      Xác định vấn đề và tại sao phải sử dụng chuyển hướng &
+                      chuyển tiếp
+                    </p>
+                    <p class="h5">Vấn đề:</p>
+                    <ol class="ml-5">
+                      <li>
+                        <p>
+                          <strong>Tác nhân đe dọa</strong>: Bất kỳ ai cũng có
+                          thể giả mạo một link để lừa người dùng truy cập vào.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Phương pháp tấn công</strong>: Attacker sử
+                          dụng liên kết để chuyển hướng truy cập và lừa để nạn
+                          nhân click vào đó. Nạn nhân có nhiều khả năng nhấp vào
+                          nó, vì các liên kết là một trang web hợp lệ.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Điểm yếu bảo mật</strong>: Ứng dụng thường
+                          xuyên chuyển hướng người dùng đến các trang khác. Đôi
+                          khi các trang đến được quy định trong một tham số
+                          thiếu chứng thực, cho phép kẻ tấn công để lựa chọn các
+                          trang đích.
+                        </p>
+                      </li>
+                    </ol>
+                    <p class="h5">
+                      Tại sao sử dụng chuyển hướng và chuyển tiếp:
+                    </p>
+                    <ol class="ml-5">
+                      <li>
+                        <p>
+                          Giống như tên miền của một website (Người ta sẽ sử
+                          dụng tên miền thay cho địa chỉ ip): Chuyển hướng để
+                          tránh những sai sót khi gõ thủ công đích đến.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Để chuyển trang. Thao tác dễ dàng, nhanh chóng, thuận
+                          tiện hơn
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Rút ngắn link gốc: liên kết trên các trang web thường
+                          làm cho một liên kết ngắn hơn
+                        </p>
+                      </li>
+                    </ol>
                   </div>
                 </div>
                 <div id="step-2" class="tab-pane" role="tabpanel">
-                   <pre>
-                      <code class="C#">
-          public class Customer : IIdEntity<int>
-                          {
-                              public int Id { get; set; }
-                              public string Name { get; set; }
-                              public string Address { get; set; }
-                              public string Email { get; set; }
-                              public string Phone { get; set; }
-                              public CustomerStatus Status { get; set; }
-                              public DateTime CreatedDate { get; set; }
-                              public virtual int? CustomerTypeId { get; set; }
-                              public virtual CustomerType CustomerType { get; set; }
-                          }
-                      </code>
-                    </pre>
-                </div>
-                <div id="step-3" class="tab-pane" role="tabpanel">
-                  Step content
+                  <p class="h4">Cách phát hiện</p>
+                  <div class="ml-4">
+                    <p>
+                      Các trình duyệt hiện nay cũng tích hơp chức năng để cảnh
+                      báo nếu người dùng click vào những liên kết nghi ngờ là
+                      không an toàn.
+                    </p>
+                    <p>Dùng tool: ví dụ Frontpage của Microsoft.</p>
+                  </div>
+                  <p class="h4">Cách phòng chống</p>
+                  <div class="ml-4">
+                    <p>
+                      Tham khảo cách phòng chống của
+                      <a
+                        href="Cross-SiteRequestForgery.html#step-2"
+                        target="_blank"
+                        >Cross-SiteRequestForgery</a
+                      >
+                    </p>
+                    <p>Sử dụng phần mềm security internet.</p>
+                    <p>Luôn cập nhật trình duyệt.</p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            
           </div>
           <!-- <a href="/" class="btn btn-primary btn-sm mt-3 px-3 py-1">Về trang chủ</a> -->
         </div>

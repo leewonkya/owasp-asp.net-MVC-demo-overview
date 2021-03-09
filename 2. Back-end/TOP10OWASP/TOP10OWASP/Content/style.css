@@ -31,6 +31,13 @@
   background-color: #0000df !important;
 }
 
+.high-light {
+    background-color: #dadada;
+    color: red;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
 .form-control.error:focus {
   color: #495057;
   background-color: #fff;
@@ -47,13 +54,6 @@
 .tab .content {
   font-size: 14px;
   word-wrap: break-word;
-}
-
-.tab .content .high-light {
-  background-color: #dadada;
-  color: red;
-  padding: 4px 8px;
-  border-radius: 4px;
 }
 
 .tab .demo {

@@ -25,6 +25,13 @@
     cursor: pointer;
 }
 
+.high-light{
+    background-color: rgb(218, 218, 218);
+    color: rgb(255, 0, 0);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
 .btn-facebook{
     background-color: blue;
     color: #fff;
@@ -51,12 +58,7 @@
     .content{
         font-size: 14px;
         word-wrap: break-word;
-        .high-light{
-            background-color: rgb(218, 218, 218);
-            color: rgb(255, 0, 0);
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
+        
     }
     .demo{
         width: 100%;

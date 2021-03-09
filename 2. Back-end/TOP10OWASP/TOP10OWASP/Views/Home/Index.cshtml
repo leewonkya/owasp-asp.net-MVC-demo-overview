@@ -3,7 +3,7 @@
         <div class="title-number h4">1. INJECTION</div>
         <div class="content my-3">Demo login.</div>
         <a href="@Url.Action("Index", "Injection")" class="btn btn-primary btn-sm px-3 py-1">Xem ví dụ</a>
-        
+
     </div>
     <div class="col-lg-4 col-sm-6 mb-5">
         <div class="title-number h4">
@@ -73,3 +73,90 @@
            class="btn btn-primary btn-sm px-3 py-1">Xem ví dụ</a>
     </div>
 </div>
+<div class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="true"
+     id="myModal">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
+         role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                    Tìm hiểu về OWASP và TOP 10 lỗi nguy hại phổ biến nhất
+                </h5>
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ol class="ml-3">
+                    <li>
+                        <p>
+                            OWASP và TOP 10 lỗi nguy hại phổ biến nhất được viết dựa
+                            trên kiến thức đã tìm hiểu được từ nhiều nguồn tổng hợp
+                            trước đó cho nên sẽ không đầy đủ 100% phòng chống các lỗ
+                            hỏng đó.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Các demo, nội dung được cung cấp hoàn toàn chính xác. Người
+                            đọc có thể kiểm chứng các kết quả được hiển thị dựa trên mã
+                            nguồn mà tác giả đã viết.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Demo chỉ thực hiện một vài lỗi mà hầu như các hệ thống hiện
+                            nay đều có nguy cơ mắc phải mà không ngăn chặn triệt để. Do
+                            đó có thể góp một phần nào đó cho các DEV có thể lưu ý hơn
+                            trong việc cấu hình lại dữ liệu, mã nguồn,...
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Demo thực hiện đồng thời cả 2 việc Bị tấn công và phòng thủ. 
+                            Cho nên sẽ có những thay đổi trong lúc thực hiện kiểm thử Demo. 
+                            Vì vậy người dùng hãy thực hiện theo hướng dẫn để có thể hiểu hơn về TOP10 OWASP. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Những thiếu xót, sai sót trong quá trình kiểm thử project
+                            người đọc hãy gửi phản hồi đến mail
+                            <span class="high-light">lqkydev99.it@gmail.com</span> Chân
+                            thành cảm ơn đã đọc.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function load() {
+            var isFired = localStorage.getItem("checkFirst");
+            if (isFired == null) {
+                localStorage.setItem("checkFirst", "1");
+                $("#myModal").modal("show");
+            }
+            else {
+                $("#myModal").modal("hide");
+            }
+        }
+        load();
+    </script>
+}   

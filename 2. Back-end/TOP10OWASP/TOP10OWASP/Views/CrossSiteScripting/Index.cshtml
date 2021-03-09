@@ -104,7 +104,7 @@
                         <p class="h3">
                             1. Sử dụng Regex để Validate Trực tiếp tại phía Client bằng
                             Javascript
-                        </p>
+                        </p>                        
                         <pre>
                         <code class="JavaScript">
                     const regex = "<(|\ /|[^\ />][^>]+|\/[^>][^>]+)>";
@@ -128,7 +128,9 @@
                     };
                       </code>
                   </pre>
-                        <p class="h3">2. Validate tại phía Server</p>
+                        
+                        <p>2. Lọc đầu vào tại phía server, Encode cho tất cả kết quả trả về là HTML.</p>
+
                     </div>
                     <div id="step-3" class="tab-pane" role="tabpanel">
                         <div id="step-1" class="tab-pane" role="tabpanel">
@@ -161,25 +163,6 @@
                                             Gửi
                                         </button>
                                     }
-                                    @*<form name="formValue"
-                                          id="formOwasp"
-                                          method="POST"
-                                          action="@Url.Action("xssOwasp", "CrossSiteScripting")"
-                                          onsubmit="return(handleValidate());">
-                                        <textarea class="form-control font-small mb-3"
-                                                  placeholder="Nhập vào tin nhắn cần gửi"
-                                                  rows="4"
-                                                  cols="50"
-                                                  name="message"
-                                                  id="validate"
-                                                  required></textarea>
-                                        <p class="errorText text-danger pl-2 alert-danger"></p>
-                                        <button type="submit"
-                                                class="btn btn-primary btn-sm px-3 py-1"
-                                                id="btn-submit">
-                                            Gửi
-                                        </button>
-                                    </form>*@
                                 </div>
                             </div>
                         </div>
