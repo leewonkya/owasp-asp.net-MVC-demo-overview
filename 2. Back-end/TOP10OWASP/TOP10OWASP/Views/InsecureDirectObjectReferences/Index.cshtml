@@ -64,18 +64,21 @@
                         </div>
                         <div class="demo d-flex">
                             <div class="form-group">
-                                <form action="">
+                                @using (Html.BeginForm("Login", "InsecureDirectObjectReferences", FormMethod.Post))
+                                {
                                     <input type="text"
                                            class="form-control font-small mb-3"
+                                           name="username"
                                            placeholder="Nhập vào tài khoản" />
                                     <input type="password"
                                            class="form-control font-small mb-3"
+                                           name="password"
                                            placeholder="Nhập vào mật khẩu" />
                                     <button type="submit"
                                             class="btn btn-primary btn-sm px-3 py-1">
                                         Đăng nhập
                                     </button>
-                                 </form>
+                                }
                             </div>
                         </div>
                     </div>
@@ -97,7 +100,25 @@
                         </ol>
                     </div>
                     <div id="step-3" class="tab-pane" role="tabpanel">
-                        Step content
+                        <div class="demo d-flex">
+                            <div class="form-group">
+                                @using (Html.BeginForm("LoginWithOwasp", "InsecureDirectObjectReferences", FormMethod.Post))
+                                {
+                                    <input type="text"
+                                           class="form-control font-small mb-3"
+                                           name="username"
+                                           placeholder="Nhập vào tài khoản" />
+                                    <input type="password"
+                                           class="form-control font-small mb-3"
+                                           name="password"
+                                           placeholder="Nhập vào mật khẩu" />
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm px-3 py-1">
+                                        Đăng nhập
+                                    </button>
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

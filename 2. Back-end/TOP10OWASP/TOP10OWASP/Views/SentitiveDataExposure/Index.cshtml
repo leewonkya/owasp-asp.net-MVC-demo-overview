@@ -93,26 +93,28 @@
                             </ol>
                         </div>
                         <div class="demo">
-                            <div class="form-group row">
-                                <div class="col-4">
-                                    @Html.DropDownList("Category", (IEnumerable<SelectListItem>)ViewBag.list, new { @class = "form-control form-control-sm" })                                    
+                            @using (Html.BeginForm("LoadProduct", "SentitiveDataExposure", FormMethod.Post))
+                            {
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.list, new { @class = "form-control form-control-sm" })
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="submit"
+                                                class="btn btn-primary btn-sm px-3 py-1">
+                                            Xem
+                                        </button>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="@Url.Action("LoadProduct", "SentitiveDataExposure", new { @CategoryId = 1 })">Xem danh sách Coffee</a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="@Url.Action("LoadProduct", "SentitiveDataExposure", new { @CategoryId = 2})" class="btn btn-primary btn-sm py-1 px-3">Xem danh sách Tea</a>
+                                    </div>
+
                                 </div>
-                                <div class="col-1">
-                                    <button type="button"
-                                            class="btn btn-primary btn-sm px-3 py-1">
-                                    Xem
-                                    </button>
-                                </div>
-                                <div class="col-4">
-                                    @Html.DropDownList("CategoryOwasp", (IEnumerable<SelectListItem>)ViewBag.listOwasp, new { @class = "form-control form-control-sm" })                                    
-                                </div>
-                                <div class="col-1">
-                                    <button type="button"
-                                            class="btn btn-primary btn-sm px-3 py-1">
-                                    Xem
-                                    </button>
-                                </div>
-                            </div>
+                            }
+                        
                         </div>
                     </div>
                     <div id="step-2" class="tab-pane" role="tabpanel">

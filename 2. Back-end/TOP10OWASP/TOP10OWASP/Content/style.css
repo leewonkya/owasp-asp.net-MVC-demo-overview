@@ -23,13 +23,12 @@
 }
 
 .btn-facebook {
-  background-color: blue;
-  color: #fff;
+  background-color: blue !important;
+  color: #fff !important;
 }
 
 .btn-facebook:hover {
-  background-color: #0000df;
-  color: #fff;
+  background-color: #0000df !important;
 }
 
 .form-control.error:focus {

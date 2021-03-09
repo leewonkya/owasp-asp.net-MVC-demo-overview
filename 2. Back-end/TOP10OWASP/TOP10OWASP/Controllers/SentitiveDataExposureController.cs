@@ -17,18 +17,26 @@ namespace TOP10OWASP.Controllers
         public ActionResult Index()
         {
             var model = _db.CATEGORies.ToList();
-            var modelOwasp = _db.CATEGORies.ToList();
             
             SelectList items = new SelectList(model, "ID", "NAME");
-            SelectList itemsOwasp = null;
-            foreach (var obj in modelOwasp)
-            {
-                itemsOwasp = new SelectList(modelOwasp, "ID" == code.EncodeFromUser(obj.ID.ToString()), "NAME");
-            }
+            
 
             ViewBag.list = items;
-            ViewBag.listOwasp = itemsOwasp;
-            return View();
+            return View(model);
+        }
+
+        
+        public ActionResult LoadProduct(int CategoryId)
+        {
+            if(CategoryId != 0)
+            {
+                var model = _db.PRODUCTs.Where(x => x.CATEGORY_ID == CategoryId).ToList();
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
     }
 }
