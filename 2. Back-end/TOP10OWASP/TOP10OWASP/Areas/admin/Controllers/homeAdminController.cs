@@ -20,16 +20,11 @@ namespace TOP10OWASP.Areas.admin.Controllers
             }
             else    
             {
-                return RedirectToAction("Error");
+                return RedirectToAction("Index", "Error", new { area = "" });
             }
         }
 
         public ActionResult Index2()
-        {
-            return View();
-        }
-
-        public ActionResult Error()
         {
             return View();
         }

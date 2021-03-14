@@ -17,6 +17,14 @@ namespace TOP10OWASP
                         "~/Scripts/jquery.smartWizard.min.js",
                         "~/Scripts/script.js"
                         ));
+            bundles.Add(new ScriptBundle("~/bundles/template/script").Include(
+                        "~/Scripts/template/jquery.min.js",
+                        "~/Scripts/template/bootstrap.bundle.min.js",
+                        "~/Scripts/template/Chart.min.js",
+                        "~/Scripts/template/sb-admin-2.min.js",
+                        "~/Scripts/template/chart-pie-demo.js",
+                        "~/Scripts/template/chart-area-demo.js"
+                        ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
@@ -27,6 +35,9 @@ namespace TOP10OWASP
                       "~/Content/bootstrap.min.css",
                       "~/Content/darcula.css",
                       "~/Content/smart_wizard_all.min.css"));
+            bundles.Add(new StyleBundle("~/Content/template/css").Include(
+                      "~/Content/template/sb-admin-2.min.css",
+                      "~/Content/template/all.min.css"));
         }
     }
 }

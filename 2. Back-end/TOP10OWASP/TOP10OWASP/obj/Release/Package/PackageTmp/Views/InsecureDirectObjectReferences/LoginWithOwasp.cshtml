@@ -1,0 +1,6 @@
+﻿@model TOP10OWASP.Models.USERACCOUNTOWASP
+
+<h3>Hello @Model.NAME</h3>
+<a href="@Url.Action("GetUserOwasp", "InsecureDirectObjectReferences", new { id = Model.ID })">Xem thông tin</a><br />
+
+<a href="@Url.Action("Index", "InsecureDirectObjectReferences")">Trở lại trang</a>

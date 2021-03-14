@@ -10,7 +10,7 @@ namespace TOP10OWASP.Controllers
     public class CrossSiteScriptingController : Controller
     {
         // GET: CrossSiteScripting
-        TOP10OWASPEntities _db = new TOP10OWASPEntities();
+        TOP10OWASPEntities1 _db = new TOP10OWASPEntities1();
         public ActionResult Index()
         {
             return View();

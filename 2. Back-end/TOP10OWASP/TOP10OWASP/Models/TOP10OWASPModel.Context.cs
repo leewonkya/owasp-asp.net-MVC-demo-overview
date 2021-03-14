@@ -31,5 +31,7 @@ namespace TOP10OWASP.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USERACCOUNT> USERACCOUNTs { get; set; }
         public virtual DbSet<USERACCOUNTOWASP> USERACCOUNTOWASPs { get; set; }
+
+        public System.Data.Entity.DbSet<TOP10OWASP.Models.PRODUCTOWASP> PRODUCTOWASPs { get; set; }
     }
 }

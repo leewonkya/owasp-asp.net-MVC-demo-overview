@@ -24,7 +24,7 @@ namespace TOP10OWASP.Areas.adminowasp.Controllers
                 return View();
             }
             else{
-                return RedirectToAction("Error");
+                return RedirectToAction("Index", "Error", new { area = "" });
             }
         }
         public ActionResult Index2()
@@ -41,7 +41,7 @@ namespace TOP10OWASP.Areas.adminowasp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Error");
+                    return RedirectToAction("Index", "Error", new { area = "" });
                 }
             }
             else
@@ -49,11 +49,6 @@ namespace TOP10OWASP.Areas.adminowasp.Controllers
                 return RedirectToAction("Index", "MissingFunctionLevelAccessControl", new { area = "" });
             }
             
-        }
-
-        public ActionResult Error()
-        {
-            return View();
         }
     }
 }

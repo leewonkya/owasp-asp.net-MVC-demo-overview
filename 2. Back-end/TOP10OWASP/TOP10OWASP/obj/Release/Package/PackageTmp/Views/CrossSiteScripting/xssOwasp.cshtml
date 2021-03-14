@@ -1,0 +1,7 @@
+﻿@model TOP10OWASP.Models.MESSAGE
+@{
+    ViewBag.Title = "xssOwasp";
+}
+
+<h4>Your message @Model.MESSAGE1</h4>
+<a href="@Url.Action("Index", "CrossSiteScripting")">Trở lại trang</a>

@@ -18,6 +18,7 @@ namespace TOP10OWASP.Models
         public CATEGORY()
         {
             this.PRODUCTs = new HashSet<PRODUCT>();
+            this.PRODUCTOWASPs = new HashSet<PRODUCTOWASP>();
         }
     
         public int ID { get; set; }
@@ -25,5 +26,7 @@ namespace TOP10OWASP.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCTs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCTOWASP> PRODUCTOWASPs { get; set; }
     }
 }

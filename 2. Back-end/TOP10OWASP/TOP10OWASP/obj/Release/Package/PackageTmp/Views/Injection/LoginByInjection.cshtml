@@ -1,0 +1,5 @@
+﻿@model List<TOP10OWASP.Models.USERACCOUNT>  
+
+<h2>Hello @foreach (var item in Model) { <span>@item.NAME</span> }</h2>
+
+<a href="@Url.Action("Index", "Injection")">Trở lại trang</a>

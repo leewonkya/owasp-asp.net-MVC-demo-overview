@@ -11,7 +11,7 @@ namespace TOP10OWASP.Controllers
     public class MissingFunctionLevelAccessControlController : Controller
     {
         // GET: MissingFunctionLevelAccessControl
-        TOP10OWASPEntities _db = new TOP10OWASPEntities();
+        TOP10OWASPEntities1 _db = new TOP10OWASPEntities1();
         cEncode code = new cEncode();
         public ActionResult Index()
         {

@@ -13,7 +13,7 @@ namespace TOP10OWASP.Controllers
     public class BrokenAuthenticationAndSessionManagementController : Controller
     {
         // GET: BrokenAuthenticationAndSessionManagement
-        TOP10OWASPEntities _db = new TOP10OWASPEntities();
+        TOP10OWASPEntities1 _db = new TOP10OWASPEntities1();
         cEncode code = new cEncode();
         public ActionResult Index()
         {
@@ -55,6 +55,10 @@ namespace TOP10OWASP.Controllers
                     myCookie.Expires = DateTime.Now.AddDays(1);
                     Response.Cookies.Add(myCookie);
                     return View(model);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Error");
                 }
             }
             return View();

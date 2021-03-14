@@ -13,7 +13,7 @@ namespace TOP10OWASP.Controllers
     public class InjectionController : Controller
     {
         // GET: Injection
-        private TOP10OWASPEntities _db = new TOP10OWASPEntities();
+        private TOP10OWASPEntities1 _db = new TOP10OWASPEntities1();
         cEncode code = new cEncode();
         public ActionResult Index()
         {
@@ -33,7 +33,7 @@ namespace TOP10OWASP.Controllers
             var checkUser = _db.USERACCOUNTOWASPs.Where(x => x.USERNAME.Equals(obj.USERNAME)).SingleOrDefault();
             if (checkUser == null)
             {
-                return Json("Tài khoản không tồn tại", JsonRequestBehavior.AllowGet);
+                return Json("Tài khoản hoặc mật khẩu không chính xác", JsonRequestBehavior.AllowGet);
             }
             else
             {
@@ -46,7 +46,7 @@ namespace TOP10OWASP.Controllers
                 }
                 else
                 {
-                    return Json("Mật khẩu không chính xác", JsonRequestBehavior.AllowGet);
+                    return Json("Tài khoản hoặc mật khẩu không chính xác", JsonRequestBehavior.AllowGet);
                 }
             }
         }         
