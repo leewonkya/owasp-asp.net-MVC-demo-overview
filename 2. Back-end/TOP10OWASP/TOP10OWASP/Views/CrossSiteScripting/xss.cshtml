@@ -2,3 +2,5 @@
 <p class="h5">Khi ta nhận được message thì đồng nghĩa với việc Attackers có thể dùng những cách tấn công khác như Lấy cookies, sau đó đăng nhập vào hệ thống với tài khoản chúng ta và thực hiện việc gây hại đến tài khoản người dùng</p>
 <a href="@Url.Action("Index", "CrossSiteScripting")">Trở lại trang</a>
 @Html.Raw(HttpUtility.HtmlDecode(Model.MESSAGE1))
+@*@Html.Raw(HttpUtility.HtmlEncode("<p><script>alert(1)</script></p>"))
+<p>@Html.Raw(HttpUtility.HtmlEncode("<script>alert(1)</script>"))</p>*@

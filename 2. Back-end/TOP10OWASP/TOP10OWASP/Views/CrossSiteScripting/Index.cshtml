@@ -83,7 +83,7 @@
                             </p>
                             <pre>
                             <code class="html cursor-pointer" onclick="handleClickGetText(this)">
-                &lt;script&gt;alert('hacked!!');&lt;/script&gt;
+                &lt;script&gt;alert(document.cookie);&lt;/script&gt;
                         </code>
                     </pre>
                         </div>
@@ -122,7 +122,7 @@
                                     Không trả về kết quả là HTML, hoặc với đầu vào là HTML, ta chỉ việc mã hóa các ký tự đặc biệt cho thẻ HTML ví dụ như
                                     <pre>
                                         <code class="HTML">
-        &lt;script&gt;alert(1)&lt;/script&gt; thành  @Html.Encode("<script>alert(1)</script>")
+                        &lt;script&gt;alert(document.cookie)&lt;/script&gt; thành  @Html.Encode("<script>alert(document.cookie)</script>")
                                         </code>
                                     </pre>
                                 </p>
@@ -143,9 +143,9 @@
                                     tin nhắn bất kỳ và một đoạn script như phía ví dụ
                                 </p>
                                 <pre>
-                                <code class="html cursor-pointer" onclick="handleClickGetText2(this)">
-                &lt;script&gt;alert('hacked!!');&lt;/script&gt;
-                        </code>
+                                    <code class="html cursor-pointer" onclick="handleClickGetText2(this)">
+                    &lt;script&gt;alert(document.cookie);&lt;/script&gt;
+                                    </code>
                     </pre>
                             </div>
                             <div class="demo d-flex">

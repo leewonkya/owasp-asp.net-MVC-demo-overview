@@ -84,7 +84,7 @@
                             <p>Vậy hãy thử đăng nhập dưới dạng tài khoản hợp lệ là <span class="high-light">user1</span> và mật khẩu là <span class="high-light">user1</span></p>
 
                         </div>
-                        <div class="demo d-flex">
+                        <div class="demo d-flex" style="padding: .6rem !important">
                             <div class="form-group">
                                 @using (Html.BeginForm("LoginByOwasp", "Injection", FormMethod.Post, new { @id = "formOwasp" }))
                                 {
@@ -100,7 +100,8 @@
                                            placeholder="Nhập vào mật khẩu"
                                            id="password"
                                            required />
-                                    <p class="errorText text-danger pl-2 alert-danger"></p>
+                                    <p class="errorText text-danger pl-2 alert-danger mb-2"></p>
+                                    
                                     <button type="button"
                                             class="btn btn-primary btn-sm px-3 py-1 " id="btn-submit">
                                         Đăng nhập
@@ -128,7 +129,7 @@
                 processData: false,
                 cache: false,
                 success: function (response) {
-                        alert(response);
+                    $(".errorText").text(JSON.stringify(response));
 
                 },
                 error: function (xhr) {

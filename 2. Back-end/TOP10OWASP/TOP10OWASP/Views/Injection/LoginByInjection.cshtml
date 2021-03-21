@@ -1,5 +1,52 @@
-﻿@model List<TOP10OWASP.Models.USERACCOUNT>  
+﻿@model List<TOP10OWASP.Models.USERACCOUNT>
 
-<h2>Hello @foreach (var item in Model) { <span>@item.NAME</span> }</h2>
+@foreach (var item in Model)
+{
+    <h2>Xin chào <span>@item.NAME</span></h2>    
+}
 
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                USERNAME
+            </td>
+            <td>
+                PASSWORD
+            </td>
+            <td>
+                NAME
+            </td>
+            <td>
+                ROLE
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.ID
+            </td>
+            <td>
+                @item.USERNAME
+            </td>
+            <td>
+                @item.PASSWORD
+            </td>
+            <td>
+                @item.NAME
+            </td>
+            <td>
+                @item.ROLE
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<p>Total Record: @Model.Count()</p>
 <a href="@Url.Action("Index", "Injection")">Trở lại trang</a>
